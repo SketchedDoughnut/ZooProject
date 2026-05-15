@@ -9,3 +9,4 @@ This website is written in plain JavaScript, HTML and CSS.
 - Design initial page design (home, start, etc)
 - Design info card template
 - Leaderboard?
+- Definition facts when certain terms are hovered over

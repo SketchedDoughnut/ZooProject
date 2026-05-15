@@ -1,0 +1,14 @@
+.mainTitle {
+    position: relative;
+    text-align: center;
+}
+
+.intro {
+    position: relative;
+    text-align: center;
+}
+
+.startButton {
+    display: flex;
+    justify-content: center;
+}
