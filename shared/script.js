@@ -12,9 +12,13 @@ const isElementLoaded = async selector => {
 };
 
 /**
- * Redirects to a different webpage, from root.
+ * Redirects to a different webpage.
  * @param {string} page 
+ * @param {boolean} add_url whether to add the current URL to the input or not.
  */
-function redirect(page) {
-  window.location.href = page
+function redirect(page, add_url = false) {
+  let newUrl = ''
+  if (add_url) { newUrl += window.location.toString }
+  // window.location.href = newUrl += page
+  window.location.assign(newUrl + page)
 }
