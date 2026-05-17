@@ -29,6 +29,7 @@
     min-height: 4.5vw;
     width: 20vw;
     margin: .5vw;
+    cursor: pointer;
 }
 
 /* a class to disable buttons */

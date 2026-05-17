@@ -2,11 +2,11 @@
 let db;
 
 window.addEventListener('load', function () {
-    openDB('test')
+    // openDB('test')
 })
 
 window.addEventListener("beforeunload", function() {
-    closeDB()
+    // closeDB()
 })
 
 /**
