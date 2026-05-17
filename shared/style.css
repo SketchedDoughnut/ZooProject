@@ -1,3 +1,9 @@
+/* applies to the body of everything */
 body {
     background-color: #099078; /** https://share.google/IkmJeCQ3kz0CLnvS2 **/
+}
+
+/* hides anything with this class applied */
+.hidden {
+    display: none;
 }

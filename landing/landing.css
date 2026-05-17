@@ -31,6 +31,13 @@
     margin: .5vw;
 }
 
+/* a class to disable buttons */
+.disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+    opacity: 0.25;
+}
+
 /* the additional information section */
 .info-title {
     position: relative;
