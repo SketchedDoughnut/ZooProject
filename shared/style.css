@@ -7,3 +7,8 @@ html {
 .hidden {
     display: none;
 }
+
+.blur {
+    backdrop-filter: blur(0);
+    filter: blur(10px);
+}

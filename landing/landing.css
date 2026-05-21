@@ -54,3 +54,7 @@ footer {
     position: relative;
     text-align: center;
 }
+
+hr {
+    background-color: black;
+}
