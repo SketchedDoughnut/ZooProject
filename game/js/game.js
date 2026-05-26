@@ -1,5 +1,5 @@
 //window.addEventListener("load", function() {
     //isElementLoaded("#LoadingContainer").then((selector) => {
-        //document.getElementById("LoadingContainer").classList.toggle("hidden")
+        //document.getElementById("loadingContainer").classList.toggle("hidden")
     //})
 //})
