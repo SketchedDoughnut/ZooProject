@@ -1,14 +1,36 @@
+
+// set up any constants
+const kDIFFICULTY = 'difficulty' // difficulty
+const kEASY = 'easy' // difficulty
+const kHARD = 'hard' // difficulty
+const kONLY_ANIMAL = 'only animals' // session storage
+const kHASHES = 'hashes' // hashes for name : hash of name
+
+// runs on load of the page
 window.addEventListener("load", function() {
-    // load the answers and images and insert the first ones
+    // clear session storage before storing anything new
+    sessionStorage.clear()
+
+    // set default difficulty
+    setDifficulty(kHARD)
+    // load the data and parse it, then load the first cards, then hide the loading page
     loadData().then(() => {
     changeCards().then(() => {
     isElementLoaded("#loadingContainer").then(() => {
         getElement("loadingContainer").classList.toggle("hidden")
-        console.log('hid loading screen')
     })
     })
     })
 })
+
+
+
+
+
+
+
+
+
 
 /**
  * Loads and parses the questions and answers from a remote source.
@@ -16,27 +38,65 @@ window.addEventListener("load", function() {
  */
 function loadData() {
     return new Promise((resolve) => {
+
         // load questions, answers, etc
         // use session storage to store them: https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage
         fetch('../assets/data.json').then((response) => {
+
             // raise error if failed
             if (!response.ok) { throw new Error(`HTTP error! Status: ${response.status}`) }
 
-            // json it and then store it
-            response.json().then((loaded) => { 
-                sessionStorage.setItem('data', loaded)
-                console.log('loaded: ')
-                console.log(loaded)
+            // json it and then store multiple things in session storage
+            response.json().then((loaded) => {
+                
+                // make a list of all animals (no habitat) and store it
+                // also make the list of hashes so we can do both of these at the same time
+                let onlyAnimals = {}
+                let hashes = {}
+                // go through each habitat key and get the animals in that habitat
+                let habitatKeys = Object.keys(loaded)
+                for (let a = 0; a < habitatKeys.length; a++) {
+                    let habitatKey = habitatKeys[a]
+                    let animals = loaded[habitatKey]
+                    let animalKeys = Object.keys(animals)
+
+                    // go through each animal and get their data
+                    for (let b = 0; b < animalKeys.length; b++) {
+                        let animalKey = animalKeys[b]
+                        let animal = animals[animalKey]
+                        onlyAnimals[animalKey] = animal
+                        
+                        // generate a randomized hash for all of the animals
+                        hashes[animalKey] = generateHash(animalKey) + Math.round(Math.random() * 1000)
+                    }
+                }
+                sessionStorage.setItem(kONLY_ANIMAL, JSON.stringify(onlyAnimals))
+                sessionStorage.setItem(kHASHES, JSON.stringify(hashes))
+
+                // if difficulty is easy, remove the habitats and just have random animals
+                // this makes it easy because its obvious that a seal is with water and a giraffe is with tall trees.
+                // hard is hard because the habitats all look similar of animals in the same section
+                let parsed = loaded
+                let difficulty = sessionStorage.getItem(kDIFFICULTY)
+                if (difficulty == kEASY) { parsed = JSON.parse(sessionStorage.getItem(kONLY_ANIMAL)) }
             })
         })
         
-        // delay for a little to make it seem like more is going on
-        console.log('done loading questions/answers')
+        // delay for a little to make it seem like more is going on :p
         setTimeout(() => {
             resolve({status: 'done'})
-        }, 2000)
+        }, 1000)
     })
 }
+
+
+
+
+
+
+
+
+
 
 /**
  * Changes the image and animal cards on screen.
@@ -64,13 +124,28 @@ function changeCards() {
             // get animal and habitat IDs
             
             // set the parameters of the template
-            animalClone.querySelector('.IMG').src = 'https://drive.google.com/thumbnail?id=1rpHrsEoMftQoboL-we-YCpASq5BV6mtk'
+            animalClone.querySelector('.imageCards').src = 'https://drive.google.com/thumbnail?id=1rpHrsEoMftQoboL-we-YCpASq5BV6mtk'
 
             animalContainer.appendChild(animalClone)
             habitatContainer.appendChild(habitatClone)
         }
 
-        console.log('done inserting cards')
+        // finally, return the resolve
         resolve({status: 'done'})
     })
 }
+
+
+
+
+
+
+
+
+
+
+/**
+ * Sets the difficulty of the game.
+ * @param {string} type the difficulty to be set.
+ */
+function setDifficulty(type) { sessionStorage.setItem(kDIFFICULTY, type) }

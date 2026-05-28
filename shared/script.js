@@ -32,3 +32,18 @@ function getElement(id) { return document.getElementById(id) }
  * @returns any
  */
 function cloneTemplate(id) { return document.getElementById(id).content.cloneNode(true) }
+
+/**
+ * Generate a hash of a string
+ * @param {string} input 
+ * @returns a 32bit integer
+ */
+const generateHash = (input) => {
+  // https://stackoverflow.com/questions/7616461/generate-a-hash-from-string-in-javascript
+  let hash = 0;
+  for (const char of input) {
+    hash = (hash << 5) - hash + char.charCodeAt(0);
+    hash |= 0; // Constrain to 32bit integer
+  }
+  return hash;
+};
