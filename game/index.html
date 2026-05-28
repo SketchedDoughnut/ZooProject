@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+    <link rel="icon" type="image/x-icon" href="../assets/img/the-ol-ham.png">
     <link rel="stylesheet" href="../shared/style.css"/>
     <link rel="stylesheet" href="../game/game.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="../shared/script.js"></script>
-    <script src="./js/dataHandler.js"></script>
-    <script src="./js/game.js"></script>
-    <title>Play</title>
+    <script src="../game/game.js"></script>
 </head>
 
 <body>
@@ -26,9 +26,21 @@
     </div>
 
     <div id="gameContainer">
-
+        <section id="animalContainer" class="animalContainer"></section>
+        <section id="habitatContainer" class="habitatContainer"></section>
     </div>
 
 </body>
+
+<!-- -------------------------------------------------------------------------------------------------------- -->
+<!-- ALL TEMPLATE HTML -->
+<!-- -------------------------------------------------------------------------------------------------------- -->
+<template id="animalCard">
+    <img class="IMG" src="../assets/img/the-ol-ham.png">
+</template>
+
+<template id="habitatCard">
+    <img class="IMG" src="../assets/img/the-ol-ham.png">
+</template>
 
 </html>

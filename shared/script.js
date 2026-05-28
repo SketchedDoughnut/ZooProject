@@ -18,3 +18,17 @@ const isElementLoaded = async selector => {
 function redirect(page) {
   window.location.assign(page)
 }
+
+/**
+ * A shorthand function to get an element from the document.
+ * @param {string} id 
+ * @returns HTMLElement | null
+ */
+function getElement(id) { return document.getElementById(id) }
+
+/**
+ * Clones an HTML template.
+ * @param {string} id 
+ * @returns any
+ */
+function cloneTemplate(id) { return document.getElementById(id).content.cloneNode(true) }
