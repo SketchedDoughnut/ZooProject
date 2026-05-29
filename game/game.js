@@ -6,6 +6,8 @@ const kHARD = 'hard' // difficulty
 const kRAW = 'raw' // the raw loaded data (for habitats)
 const kONLY_ANIMAL = 'only animals' // session storage
 const kHASHES = 'hashes' // hashes for name : hash of name
+const kLAST_HABITAT = 'last habitat' // the last habitat that was shown (to avoid repition)
+const kLAST_ANIMALS = 'last animals' // the last animals that were shown (to avoid repition)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -26,6 +28,8 @@ window.addEventListener("load", function() {
 
     // set default difficulty
     setDifficulty(kEASY)
+    sessionStorage.setItem(kLAST_HABITAT, "")
+    sessionStorage.setItem(kLAST_ANIMALS, JSON.stringify([]))
     // load the data and parse it, then load the first cards, then hide the loading page
     loadData().then(() => {
     changeCards().then(() => {
@@ -79,7 +83,7 @@ function loadData() {
                         onlyAnimals[animalKey] = animal
                         
                         // generate a randomized hash for all of the animals
-                        hashes[animalKey] = generateHash(animalKey) + Math.round(Math.random() * 1000)
+                        hashes[animalKey] = generateHash(animalKey)
                     }
                 }
                 sessionStorage.setItem(kRAW, JSON.stringify(loaded))
@@ -126,38 +130,80 @@ function changeCards() {
         animalContainer.replaceChildren()
         habitatContainer.replaceChildren()
 
-        // load three random animals and their associated habitats
-        let animals = []
-        let habitats = []
+        // load three random animals (from a habitat if enabled)
+        let animals;
+        let sel = [];
+
+        // get our selection of animals based on difficulty
+        // if easy, just get the full random list of animals
         let difficulty = sessionStorage.getItem(kDIFFICULTY)
-        // if easy, just select three random animals
         if (difficulty == kEASY) {
-            let justAnim = JSON.parse(sessionStorage.getItem(kONLY_ANIMAL))
-            let justAnimKeys = Object.keys(justAnim)
-            // https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
-            for (i = justAnimKeys.length - 1; i > 1; i--) {
-                let j = getRandomInt(0, justAnimKeys.length - 1)
-                let copy = justAnimKeys[j]
-                justAnimKeys.splice(j, 1)
-                justAnimKeys.push(copy)
+            animals = JSON.parse(sessionStorage.getItem(kONLY_ANIMAL))
+        }
+        // if hard, choose a habitat and then get the animals
+        else if (difficulty == kHARD) {
+            // load raw data and get a habitat key
+            let lastHabitat = sessionStorage.getItem(kLAST_HABITAT)
+            let raw = JSON.parse(sessionStorage.getItem(kRAW))
+            let habitatKeys = Object.keys(raw)
+            let habitatKey = habitatKeys[getRandomInt(0, habitatKeys.length - 1)]
+
+            // verify we don't have the same habitat as last time
+            while (habitatKey == lastHabitat) {
+                habitatKey = habitatKeys[getRandomInt(0, habitatKeys.length - 1)]
             }
-            alert(justAnimKeys)
-            //     let sel = justAnimKeys[randAnimIndex]
+            sessionStorage.setItem(kLAST_HABITAT, habitatKey)
+            animals = raw[habitatKey]
         }
 
-        // create three elements of the animal / habitat
+        // shuffle the list of animals
+        let animKeys = Object.keys(animals)
+        animKeys = shuffleArray(animKeys)
+
+        // select three animals at random
+        // if we got the same animal as last time, reshuffle
+        let lastAnimals = JSON.parse(sessionStorage.getItem(kLAST_ANIMALS))
         for (let i = 0; i < 3; i++) {
+            let animalKey = animKeys[getRandomInt(0, animKeys.length - 1)]
+            // make sure we do not match either sel or the previous ones
+            while (sel.includes(animalKey) || lastAnimals.includes(animalKey)) {
+                animalKey = animKeys[getRandomInt(0, animKeys.length - 1)]
+            }
+            sel.push(animalKey)
+        }
+        sessionStorage.setItem(kLAST_ANIMALS, JSON.stringify(sel))
+
+        // create three elements of the animal / habitat
+        let hashes = JSON.parse(sessionStorage.getItem(kHASHES))
+        for (let i = 0; i < 3; i++) {
+            let anim = animals[sel[i]]
+            let animPicID = anim['pic']
+            let habPicID = anim['habitat']
+            let animHash = hashes[sel[i]]
+
             // create clones of templates
             let animalClone = animalTemplate.cloneNode(true)
             let habitatClone = habitatTemplate.cloneNode(true)
 
-            // set the parameters of the template
-            let imgCard = animalClone.querySelector('.imageCards')
-            imgCard.src = 'https://drive.google.com/thumbnail?id=1rpHrsEoMftQoboL-we-YCpASq5BV6mtk'
-            imgCard.addEventListener('click', function() {
-
+            // set the parameters of the animal card
+            let animCard = animalClone.querySelector('.imageCards')
+            animCard.id = sel[i] // name of the animal
+            animCard.src = getDriveURL(animPicID) // google drive id with the animal picture
+            animCard.addEventListener('click', function() {
+                // change imgCard list to selected
+                animCard.classList.toggle('selected')
             })
 
+            // set the parameters of the habitat card
+            let habCard = habitatClone.querySelector('.imageCards')
+            habCard.id = animHash // the hash of the animal that is in this habitat
+            habCard.src = getDriveURL(habPicID) // google drive id with the habitat picture
+            habCard.addEventListener('click', function() {
+                // change imgCard list to selected
+                habCard.classList.toggle('selected')
+            })
+
+            // add the images back in
             animalContainer.appendChild(animalClone)
             habitatContainer.appendChild(habitatClone)
         }
@@ -196,4 +242,20 @@ function setDifficulty(type) { sessionStorage.setItem(kDIFFICULTY, type) }
  */
 function setSelected(id) {
 
+}
+
+
+
+
+
+
+
+
+/**
+ * Generates the Google Drive URL for an image based on its ID.
+ * @param {string} id the ID of the image
+ * @returns {string} the Google Drive URL for the image
+ */
+function getDriveURL(id) {
+    return `https://drive.google.com/thumbnail?id=${id}`
 }

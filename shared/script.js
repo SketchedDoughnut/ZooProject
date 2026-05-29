@@ -57,3 +57,19 @@ const generateHash = (input) => {
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+/**
+ * Shuffles the content of a list
+ * @param {Array} arrray 
+ * @returns Array
+ */
+function shuffleArray(array) {
+  // https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
+  for (i = array.length - 1; i > 1; i--) {
+      let j = getRandomInt(0, array.length - 1)
+      let copy = array[j]
+      array.splice(j, 1)
+      array.push(copy)
+  }
+  return array
+}
