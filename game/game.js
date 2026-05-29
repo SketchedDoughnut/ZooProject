@@ -92,13 +92,11 @@ function loadData() {
                 let parsed = loaded
                 let difficulty = sessionStorage.getItem(kDIFFICULTY)
                 if (difficulty == kEASY) { parsed = JSON.parse(sessionStorage.getItem(kONLY_ANIMAL)) }
+
+                resolve({status: 'done'})
             })
         })
         
-        // delay for a little to make it seem like more is going on :p
-        setTimeout(() => {
-            resolve({status: 'done'})
-        }, 0)
     })
 }
 
@@ -132,15 +130,19 @@ function changeCards() {
         let animals = []
         let habitats = []
         let difficulty = sessionStorage.getItem(kDIFFICULTY)
-        // if easy, just select three random animals and their habitats
+        // if easy, just select three random animals
         if (difficulty == kEASY) {
-            // let justAnim = JSON.parse(sessionStorage.getItem(kONLY_ANIMAL))
-            // let justAnimKeys = Object.keys(justAnim)
-            // let split = justAnimKeys.split(",")
-            // while (animals.length < 3) {
-            //     let randAnimIndex = getRandomInt(0, justAnimKeys.length - 1)
+            let justAnim = JSON.parse(sessionStorage.getItem(kONLY_ANIMAL))
+            let justAnimKeys = Object.keys(justAnim)
+            // https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
+            for (i = justAnimKeys.length - 1; i > 1; i--) {
+                let j = getRandomInt(0, justAnimKeys.length - 1)
+                let copy = justAnimKeys[j]
+                justAnimKeys.splice(j, 1)
+                justAnimKeys.push(copy)
+            }
+            alert(justAnimKeys)
             //     let sel = justAnimKeys[randAnimIndex]
-            // }
         }
 
         // create three elements of the animal / habitat
