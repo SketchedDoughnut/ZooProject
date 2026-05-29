@@ -23,14 +23,7 @@
 }
 
 /* the container for the animal images */
-.animalContainer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-/* the container for the habitat images */
-.habitatContainer {
+.sectionContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -38,8 +31,24 @@
 
 /* the standardizing of the animal and habitat images */
 .imageCards {
+  display: block;
   width: 400px;        
   height: 300px;        
   object-fit: cover;   
-  padding: 1vw;
+  margin: 1vw;
+}
+
+/* A container for the image cards */
+.cardContainer {
+  display: block;;
+  transition: filter 0.3s ease;
+}
+
+/* making them grey when hovered over */
+.cardContainer:hover {
+  filter: grayscale(75%);
+}
+
+.selected {
+  border: 5px solid black;
 }

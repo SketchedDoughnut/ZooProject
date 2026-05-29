@@ -3,8 +3,21 @@
 const kDIFFICULTY = 'difficulty' // difficulty
 const kEASY = 'easy' // difficulty
 const kHARD = 'hard' // difficulty
+const kRAW = 'raw' // the raw loaded data (for habitats)
 const kONLY_ANIMAL = 'only animals' // session storage
 const kHASHES = 'hashes' // hashes for name : hash of name
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+
+/**
+ * Data formats (so I know what in the wrorld is going on)
+ * in session storage:
+ * - kDifficulty is either kEASY or kHARD, a literal string
+ * - kONLY_ANIMAL is a dictionary with {"animal name": {"natural": "url", "habitat": "url"}}
+ * - kHASHES is a dictionary with {"animal name": number representing a unique hash}
+ */
+
+///////////////////////////////////////////////////////////////////////////////////////////////
 
 // runs on load of the page
 window.addEventListener("load", function() {
@@ -12,7 +25,7 @@ window.addEventListener("load", function() {
     sessionStorage.clear()
 
     // set default difficulty
-    setDifficulty(kHARD)
+    setDifficulty(kEASY)
     // load the data and parse it, then load the first cards, then hide the loading page
     loadData().then(() => {
     changeCards().then(() => {
@@ -22,7 +35,6 @@ window.addEventListener("load", function() {
     })
     })
 })
-
 
 
 
@@ -70,6 +82,7 @@ function loadData() {
                         hashes[animalKey] = generateHash(animalKey) + Math.round(Math.random() * 1000)
                     }
                 }
+                sessionStorage.setItem(kRAW, JSON.stringify(loaded))
                 sessionStorage.setItem(kONLY_ANIMAL, JSON.stringify(onlyAnimals))
                 sessionStorage.setItem(kHASHES, JSON.stringify(hashes))
 
@@ -85,7 +98,7 @@ function loadData() {
         // delay for a little to make it seem like more is going on :p
         setTimeout(() => {
             resolve({status: 'done'})
-        }, 1000)
+        }, 0)
     })
 }
 
@@ -111,9 +124,24 @@ function changeCards() {
         let animalContainer = getElement('animalContainer')
         let habitatContainer = getElement('habitatContainer')
 
-        // reset the containers to default templates
+        // reset the containers to default templates with no image
         animalContainer.replaceChildren()
         habitatContainer.replaceChildren()
+
+        // load three random animals and their associated habitats
+        let animals = []
+        let habitats = []
+        let difficulty = sessionStorage.getItem(kDIFFICULTY)
+        // if easy, just select three random animals and their habitats
+        if (difficulty == kEASY) {
+            // let justAnim = JSON.parse(sessionStorage.getItem(kONLY_ANIMAL))
+            // let justAnimKeys = Object.keys(justAnim)
+            // let split = justAnimKeys.split(",")
+            // while (animals.length < 3) {
+            //     let randAnimIndex = getRandomInt(0, justAnimKeys.length - 1)
+            //     let sel = justAnimKeys[randAnimIndex]
+            // }
+        }
 
         // create three elements of the animal / habitat
         for (let i = 0; i < 3; i++) {
@@ -121,10 +149,12 @@ function changeCards() {
             let animalClone = animalTemplate.cloneNode(true)
             let habitatClone = habitatTemplate.cloneNode(true)
 
-            // get animal and habitat IDs
-            
             // set the parameters of the template
-            animalClone.querySelector('.imageCards').src = 'https://drive.google.com/thumbnail?id=1rpHrsEoMftQoboL-we-YCpASq5BV6mtk'
+            let imgCard = animalClone.querySelector('.imageCards')
+            imgCard.src = 'https://drive.google.com/thumbnail?id=1rpHrsEoMftQoboL-we-YCpASq5BV6mtk'
+            imgCard.addEventListener('click', function() {
+
+            })
 
             animalContainer.appendChild(animalClone)
             habitatContainer.appendChild(habitatClone)
@@ -149,3 +179,19 @@ function changeCards() {
  * @param {string} type the difficulty to be set.
  */
 function setDifficulty(type) { sessionStorage.setItem(kDIFFICULTY, type) }
+
+
+
+
+
+
+
+
+
+/**
+ * Gives the selected element the selected class and removes it from everyone else in the container.
+ * @param {string} id 
+ */
+function setSelected(id) {
+
+}

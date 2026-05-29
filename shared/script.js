@@ -47,3 +47,13 @@ const generateHash = (input) => {
   }
   return hash;
 };
+
+/**
+ * Gets a random integer between min and max.
+ * @param {Number} min 
+ * @param {Number} max 
+ * @returns Number
+ */
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}

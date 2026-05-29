@@ -26,21 +26,27 @@
     </div>
 
     <div id="gameContainer">
-        <section id="animalContainer" class="animalContainer"></section>
-        <section id="habitatContainer" class="habitatContainer"></section>
+        <section id="animalContainer" class="sectionContainer"></section>
+        <section id="habitatContainer" class="sectionContainer
+        "></section>
     </div>
 
+    <button onclick="changeCards()">change cards</button>
 </body>
 
 <!-- -------------------------------------------------------------------------------------------------------- -->
 <!-- ALL TEMPLATE HTML -->
 <!-- -------------------------------------------------------------------------------------------------------- -->
 <template id="animalCard">
-    <img class="imageCards" src="../assets/img/the-ol-ham.png">
+    <div class="cardContainer">
+        <img class="imageCards" src="../assets/img/the-ol-ham.png">
+    </div>
 </template>
 
 <template id="habitatCard">
-    <img class="imageCards" src="../assets/img/the-ol-ham.png">
+    <div class="cardContainer">
+        <img class="imageCards" src="../assets/img/the-ol-ham.png">
+    </div>
 </template>
 
 </html>
