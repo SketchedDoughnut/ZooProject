@@ -176,24 +176,30 @@ function changeCards() {
         sessionStorage.setItem(kLAST_ANIMALS, JSON.stringify(sel))
 
         // shuffle habitat and animal pictures to not be aligned with respective matches
+        let hashes = JSON.parse(sessionStorage.getItem(kHASHES))
         let habPics = []
         let animPics = []
         for (let i = 0; i < 3; i++) {
-            habPics.push(animals[sel[i]]['habitat'])
-            animPics.push(animals[sel[i]]['pic'])
+            habPics.push(
+                [animals[sel[i]]['habitat'], hashes[sel[i]]]
+            )
+            animPics.push(
+                [animals[sel[i]]['pic'], sel[i]]
+            )
         }
         habPics = shuffleArray(habPics, 3)
         animPics = shuffleArray(animPics, 3)
 
         // create three elements of the animal / habitat
-        let hashes = JSON.parse(sessionStorage.getItem(kHASHES))
         for (let i = 0; i < 3; i++) {
             // let anim = animals[sel[i]]
             // let animPicID = anim['pic']
             // let habPicID = anim['habitat']
-            let animHash = hashes[sel[i]]
-            animPicID = animPics[i]
-            habPicID = habPics[i]
+            // let animHash = hashes[sel[i]] // the hash of the animals name
+            let animPicID = animPics[i][0] // the picture ID of the animal
+            let animID = animPics[i][1] // the element ID (animal name)
+            let habPicID = habPics[i][0] // the picture ID of the habitat 
+            let habID = habPics[i][1] // the element id (hash of animal name)
 
             // create clones of templates
             let animalClone = animalTemplate.cloneNode(true)
@@ -201,7 +207,7 @@ function changeCards() {
 
             // set the parameters of the animal card
             let animCard = animalClone.querySelector('.imageCards')
-            animCard.id = sel[i] // name of the animal
+            animCard.id = animID // name of the animal
             animCard.src = getDriveURL(animPicID) // google drive id with the animal picture
             animCard.addEventListener('click', function() {
                 // have this one be selected and none of the others
@@ -210,7 +216,7 @@ function changeCards() {
 
             // set the parameters of the habitat card
             let habCard = habitatClone.querySelector('.imageCards')
-            habCard.id = animHash // the hash of the animal that is in this habitat
+            habCard.id = habID // the hash of the animal that is in this habitat
             habCard.src = getDriveURL(habPicID) // google drive id with the habitat picture
             habCard.addEventListener('click', function() {
                 // have this one be selected and none of the others
