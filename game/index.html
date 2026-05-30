@@ -28,13 +28,14 @@
 
     <div id="gameContainer">
         <section id="animalContainer" class="sectionContainer"></section>
-        <section id="habitatContainer" class="sectionContainer
-        "></section>
+        <section id="habitatContainer" class="sectionContainer"></section>
     </div>
 
     <button onclick="changeCards()">change cards</button>
-    <button onclick="changeDifficulty(kEASY)">set easy</button>
-    <button onclick="changeDifficulty(kHARD)">set hard</button>
+    <button onclick="setDifficulty(kEASY)">set easy</button>
+    <button onclick="setDifficulty(kHARD)">set hard</button>
+    <button onclick="sessionStorage.clear()">clear session storage</button>
+    <button onclick="window.location.reload()">reload</button>
 </body>
 
 <!-- -------------------------------------------------------------------------------------------------------- -->

@@ -8,6 +8,8 @@ const kONLY_ANIMAL = 'only animals' // session storage
 const kHASHES = 'hashes' // hashes for name : hash of name
 const kLAST_HABITAT = 'last habitat' // the last habitat that was shown (to avoid repition)
 const kLAST_ANIMALS = 'last animals' // the last animals that were shown (to avoid repition)
+const kANIM_SEL = 'animal selected' // what animal is currently selected
+const kHAB_SEL = 'habitat selected' // what habitat is currently selected
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -24,10 +26,10 @@ const kLAST_ANIMALS = 'last animals' // the last animals that were shown (to avo
 // runs on load of the page
 window.addEventListener("load", function() {
     // clear session storage before storing anything new
-    sessionStorage.clear()
+    // sessionStorage.clear()
 
-    // set default difficulty
-    setDifficulty(kEASY)
+    // set difficulty to easy if doesn't exist in session storage
+    if (!sessionStorage.getItem(kDIFFICULTY)) { setDifficulty(kEASY) }
     sessionStorage.setItem(kLAST_HABITAT, "")
     sessionStorage.setItem(kLAST_ANIMALS, JSON.stringify([]))
     // load the data and parse it, then load the first cards, then hide the loading page
@@ -173,13 +175,25 @@ function changeCards() {
         }
         sessionStorage.setItem(kLAST_ANIMALS, JSON.stringify(sel))
 
+        // shuffle habitat and animal pictures to not be aligned with respective matches
+        let habPics = []
+        let animPics = []
+        for (let i = 0; i < 3; i++) {
+            habPics.push(animals[sel[i]]['habitat'])
+            animPics.push(animals[sel[i]]['pic'])
+        }
+        habPics = shuffleArray(habPics, 3)
+        animPics = shuffleArray(animPics, 3)
+
         // create three elements of the animal / habitat
         let hashes = JSON.parse(sessionStorage.getItem(kHASHES))
         for (let i = 0; i < 3; i++) {
-            let anim = animals[sel[i]]
-            let animPicID = anim['pic']
-            let habPicID = anim['habitat']
+            // let anim = animals[sel[i]]
+            // let animPicID = anim['pic']
+            // let habPicID = anim['habitat']
             let animHash = hashes[sel[i]]
+            animPicID = animPics[i]
+            habPicID = habPics[i]
 
             // create clones of templates
             let animalClone = animalTemplate.cloneNode(true)
@@ -190,8 +204,8 @@ function changeCards() {
             animCard.id = sel[i] // name of the animal
             animCard.src = getDriveURL(animPicID) // google drive id with the animal picture
             animCard.addEventListener('click', function() {
-                // change imgCard list to selected
-                animCard.classList.toggle('selected')
+                // have this one be selected and none of the others
+                setSelected(animCard.id)
             })
 
             // set the parameters of the habitat card
@@ -199,8 +213,8 @@ function changeCards() {
             habCard.id = animHash // the hash of the animal that is in this habitat
             habCard.src = getDriveURL(habPicID) // google drive id with the habitat picture
             habCard.addEventListener('click', function() {
-                // change imgCard list to selected
-                habCard.classList.toggle('selected')
+                // have this one be selected and none of the others
+                setSelected(habCard.id)
             })
 
             // add the images back in
@@ -238,10 +252,23 @@ function setDifficulty(type) { sessionStorage.setItem(kDIFFICULTY, type) }
 
 /**
  * Gives the selected element the selected class and removes it from everyone else in the container.
- * @param {string} id 
+ * @param {string} id the name of the one to be allowed to be selected
+ * @param {boolean} the type of container (animal or habitat)
+ * +
  */
-function setSelected(id) {
-
+function setSelected(id, is_animal = true) {
+    // get all elements of the main container
+    let mc;
+    let cardContainers;
+    if (is_animal) { mc = getElement('animalContainer') }
+    else { mc = getElement('habitatContainer') }
+    // get all of the card containers
+    cardContainers = mc.getElementsByClassName('cardContainer')
+    for (i = 0; i < cardContainers.length + 1; i++) {
+        // get the img card within
+        let container = cardContainers[i]
+        container.getElementByID()
+    }
 }
 
 

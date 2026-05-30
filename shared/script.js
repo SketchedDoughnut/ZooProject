@@ -61,11 +61,12 @@ function getRandomInt(min, max) {
 /**
  * Shuffles the content of a list
  * @param {Array} arrray 
+ * @param {Number} rep how many times to repeat the shuffle (multiples of array.length - 1
  * @returns Array
  */
-function shuffleArray(array) {
+function shuffleArray(array,rep = 1) {
   // https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
-  for (i = array.length - 1; i > 1; i--) {
+  for (i = (array.length - 1) * rep; i > 1; i--) {
       let j = getRandomInt(0, array.length - 1)
       let copy = array[j]
       array.splice(j, 1)
