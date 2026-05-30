@@ -10,6 +10,8 @@ const kLAST_HABITAT = 'last habitat' // the last habitat that was shown (to avoi
 const kLAST_ANIMALS = 'last animals' // the last animals that were shown (to avoid repition)
 const kANIM_SEL = 'animal selected' // what animal is currently selected
 const kHAB_SEL = 'habitat selected' // what habitat is currently selected
+const kANIM_SEL_HASH = 'selected animal hash' // the hash of the animal that was selected
+const kSEL_COMPARE = 'sel compare' // the hash of the animal name
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -131,6 +133,12 @@ function changeCards() {
         // reset the containers to default templates with no image
         animalContainer.replaceChildren()
         habitatContainer.replaceChildren()
+
+        // reset the selections
+        sessionStorage.setItem(kHAB_SEL, 0)
+        sessionStorage.setItem(kANIM_SEL, '')
+        sessionStorage.setItem(kSEL_COMPARE, false)
+        sessionStorage.setItem(kANIM_SEL_HASH, 0)
 
         // load three random animals (from a habitat if enabled)
         let animals;
@@ -274,10 +282,34 @@ function setSelected(id, is_animal) {
         // get the img card within
         let container = cardContainers[i]
         let imgElem = container.children[0]
-        // if id is one selected, skip
+        // if id is one selected, apply the outline, add to session storage and skip
         // else remove selected if its in the class list
-        if (imgElem.id == id) { imgElem.classList.toggle('selected'); continue }
+        let imgID = imgElem.id
+        if (imgID == id) { 
+            // if we toggled 'selected' in the img and its gone, we are un-selecting
+            imgElem.classList.toggle('selected')
+            if (!imgElem.classList.contains('selected')) {
+                if (is_animal) { sessionStorage.setItem(kANIM_SEL, '') }
+                else { sessionStorage.setItem(kHAB_SEL, 0) }
+            }
+            else {
+                if (is_animal) { sessionStorage.setItem(kANIM_SEL, imgID) }
+                else { sessionStorage.setItem(kHAB_SEL, imgID) }
+            }
+            continue
+        }
         if ((imgElem.classList.contains('selected'))) { imgElem.classList.toggle('selected') }
+    }
+    // compare hash of selected animal to selected image
+    let selAnimHash = generateHash(sessionStorage.getItem(kANIM_SEL))
+    let selHabHash = sessionStorage.getItem(kHAB_SEL)
+    sessionStorage.setItem(kSEL_COMPARE, selAnimHash == selHabHash && selAnimHash != '' && selHabHash != 0)
+    sessionStorage.setItem(kANIM_SEL_HASH, selAnimHash)
+
+    // if win, change cards! TODO CHANGE THE LOGIC LATER
+    if (sessionStorage.getItem(kSEL_COMPARE) == "true") {
+        alert('correct!')
+        changeCards()
     }
 }
 
