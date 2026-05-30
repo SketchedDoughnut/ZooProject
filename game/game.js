@@ -211,7 +211,7 @@ function changeCards() {
             animCard.src = getDriveURL(animPicID) // google drive id with the animal picture
             animCard.addEventListener('click', function() {
                 // have this one be selected and none of the others
-                setSelected(animCard.id)
+                setSelected(animCard.id, true)
             })
 
             // set the parameters of the habitat card
@@ -220,7 +220,7 @@ function changeCards() {
             habCard.src = getDriveURL(habPicID) // google drive id with the habitat picture
             habCard.addEventListener('click', function() {
                 // have this one be selected and none of the others
-                setSelected(habCard.id)
+                setSelected(habCard.id, false)
             })
 
             // add the images back in
@@ -262,18 +262,22 @@ function setDifficulty(type) { sessionStorage.setItem(kDIFFICULTY, type) }
  * @param {boolean} the type of container (animal or habitat)
  * +
  */
-function setSelected(id, is_animal = true) {
+function setSelected(id, is_animal) {
     // get all elements of the main container
     let mc;
     let cardContainers;
     if (is_animal) { mc = getElement('animalContainer') }
     else { mc = getElement('habitatContainer') }
     // get all of the card containers
-    cardContainers = mc.getElementsByClassName('cardContainer')
-    for (i = 0; i < cardContainers.length + 1; i++) {
+    cardContainers = mc.children
+    for (i = 0; i < cardContainers.length; i++) {
         // get the img card within
         let container = cardContainers[i]
-        container.getElementByID()
+        let imgElem = container.children[0]
+        // if id is one selected, skip
+        // else remove selected if its in the class list
+        if (imgElem.id == id) { imgElem.classList.toggle('selected'); continue }
+        if ((imgElem.classList.contains('selected'))) { imgElem.classList.toggle('selected') }
     }
 }
 
