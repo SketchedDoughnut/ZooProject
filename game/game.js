@@ -12,6 +12,9 @@ const kANIM_SEL = 'animal selected' // what animal is currently selected
 const kHAB_SEL = 'habitat selected' // what habitat is currently selected
 const kANIM_SEL_HASH = 'selected animal hash' // the hash of the animal that was selected
 const kSEL_COMPARE = 'sel compare' // the hash of the animal name
+const kANIM_SLIDES = 'animal slides' // the slides of more photos of animals to be shown during the info card
+const kMAX_CARDS = 3 // how many cards to have
+const kCORRECT = 'correct count' // how many are correct
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -34,6 +37,7 @@ window.addEventListener("load", function() {
     if (!sessionStorage.getItem(kDIFFICULTY)) { setDifficulty(kEASY) }
     sessionStorage.setItem(kLAST_HABITAT, "")
     sessionStorage.setItem(kLAST_ANIMALS, JSON.stringify([]))
+    sessionStorage.setItem(kCORRECT, JSON.stringify(0))
     // load the data and parse it, then load the first cards, then hide the loading page
     loadData().then(() => {
     changeCards().then(() => {
@@ -73,6 +77,8 @@ function loadData() {
                 // also make the list of hashes so we can do both of these at the same time
                 let onlyAnimals = {}
                 let hashes = {}
+                let animSlides = {}
+
                 // go through each habitat key and get the animals in that habitat
                 let habitatKeys = Object.keys(loaded)
                 for (let a = 0; a < habitatKeys.length; a++) {
@@ -85,6 +91,7 @@ function loadData() {
                         let animalKey = animalKeys[b]
                         let animal = animals[animalKey]
                         onlyAnimals[animalKey] = animal
+                        animSlides[animalKey] = animal['slides']
                         
                         // generate a randomized hash for all of the animals
                         hashes[animalKey] = generateHash(animalKey)
@@ -93,6 +100,7 @@ function loadData() {
                 sessionStorage.setItem(kRAW, JSON.stringify(loaded))
                 sessionStorage.setItem(kONLY_ANIMAL, JSON.stringify(onlyAnimals))
                 sessionStorage.setItem(kHASHES, JSON.stringify(hashes))
+                sessionStorage.setItem(kANIM_SLIDES, JSON.stringify(animSlides))
 
                 // if difficulty is easy, remove the habitats and just have random animals
                 // this makes it easy because its obvious that a seal is with water and a giraffe is with tall trees.
@@ -173,7 +181,7 @@ function changeCards() {
         // select three animals at random
         // if we got the same animal as last time, reshuffle
         let lastAnimals = JSON.parse(sessionStorage.getItem(kLAST_ANIMALS))
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < kMAX_CARDS; i++) {
             let animalKey = animKeys[getRandomInt(0, animKeys.length - 1)]
             // make sure we do not match either sel or the previous ones
             while (sel.includes(animalKey) || lastAnimals.includes(animalKey)) {
@@ -187,7 +195,7 @@ function changeCards() {
         let hashes = JSON.parse(sessionStorage.getItem(kHASHES))
         let habPics = []
         let animPics = []
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < kMAX_CARDS; i++) {
             habPics.push(
                 [animals[sel[i]]['habitat'], hashes[sel[i]]]
             )
@@ -195,11 +203,11 @@ function changeCards() {
                 [animals[sel[i]]['pic'], sel[i]]
             )
         }
-        habPics = shuffleArray(habPics, 3)
-        animPics = shuffleArray(animPics, 3)
+        habPics = shuffleArray(habPics, kMAX_CARDS)
+        animPics = shuffleArray(animPics, kMAX_CARDS)
 
         // create three elements of the animal / habitat
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < kMAX_CARDS; i++) {
             // let anim = animals[sel[i]]
             // let animPicID = anim['pic']
             // let habPicID = anim['habitat']
@@ -219,7 +227,9 @@ function changeCards() {
             animCard.src = getDriveURL(animPicID) // google drive id with the animal picture
             animCard.addEventListener('click', function() {
                 // have this one be selected and none of the others
-                setSelected(animCard.id, true)
+                setSelected(animCard.id, true).then(() => {
+                    winCheck()
+                })
             })
 
             // set the parameters of the habitat card
@@ -228,7 +238,9 @@ function changeCards() {
             habCard.src = getDriveURL(habPicID) // google drive id with the habitat picture
             habCard.addEventListener('click', function() {
                 // have this one be selected and none of the others
-                setSelected(habCard.id, false)
+                setSelected(habCard.id, false).then(() => {
+                    winCheck()
+                })
             })
 
             // add the images back in
@@ -271,46 +283,46 @@ function setDifficulty(type) { sessionStorage.setItem(kDIFFICULTY, type) }
  * +
  */
 function setSelected(id, is_animal) {
-    // get all elements of the main container
-    let mc;
-    let cardContainers;
-    if (is_animal) { mc = getElement('animalContainer') }
-    else { mc = getElement('habitatContainer') }
-    // get all of the card containers
-    cardContainers = mc.children
-    for (i = 0; i < cardContainers.length; i++) {
-        // get the img card within
-        let container = cardContainers[i]
-        let imgElem = container.children[0]
-        // if id is one selected, apply the outline, add to session storage and skip
-        // else remove selected if its in the class list
-        let imgID = imgElem.id
-        if (imgID == id) { 
-            // if we toggled 'selected' in the img and its gone, we are un-selecting
-            imgElem.classList.toggle('selected')
-            if (!imgElem.classList.contains('selected')) {
-                if (is_animal) { sessionStorage.setItem(kANIM_SEL, '') }
-                else { sessionStorage.setItem(kHAB_SEL, 0) }
+    return new Promise((resolve) => {
+        // get all elements of the main container
+        let mc;
+        let cardContainers;
+        if (is_animal) { mc = getElement('animalContainer') }
+        else { mc = getElement('habitatContainer') }
+        // get all of the card containers
+        cardContainers = mc.children
+        for (i = 0; i < cardContainers.length; i++) {
+            // get the img card within
+            let container = cardContainers[i]
+            let imgElem = container.children[0]
+            // if id is one selected, apply the outline, add to session storage and skip
+            // else remove selected if its in the class list
+            let imgID = imgElem.id
+            if (imgID == id) { 
+                // toggle the selected
+                imgElem.classList.toggle('selected')
+                // if we toggled 'selected' in the img and its gone, we are un-selecting
+                if (!imgElem.classList.contains('selected')) { 
+                    if (is_animal) { sessionStorage.setItem(kANIM_SEL, '') }
+                    else { sessionStorage.setItem(kHAB_SEL, 0) }
+                 }
+                else {
+                    if (is_animal) { sessionStorage.setItem(kANIM_SEL, imgID) }
+                    else { sessionStorage.setItem(kHAB_SEL, imgID) }
+                }
+                continue
             }
-            else {
-                if (is_animal) { sessionStorage.setItem(kANIM_SEL, imgID) }
-                else { sessionStorage.setItem(kHAB_SEL, imgID) }
-            }
-            continue
+            // for everything else, remove selected
+            if ((imgElem.classList.contains('selected'))) { imgElem.classList.toggle('selected') }
         }
-        if ((imgElem.classList.contains('selected'))) { imgElem.classList.toggle('selected') }
-    }
-    // compare hash of selected animal to selected image
-    let selAnimHash = generateHash(sessionStorage.getItem(kANIM_SEL))
-    let selHabHash = sessionStorage.getItem(kHAB_SEL)
-    sessionStorage.setItem(kSEL_COMPARE, selAnimHash == selHabHash && selAnimHash != '' && selHabHash != 0)
-    sessionStorage.setItem(kANIM_SEL_HASH, selAnimHash)
+        // compare hash of selected animal to selected image
+        let selAnimHash = generateHash(sessionStorage.getItem(kANIM_SEL))
+        let selHabHash = sessionStorage.getItem(kHAB_SEL)
+        sessionStorage.setItem(kSEL_COMPARE, selAnimHash == selHabHash && selAnimHash != '' && selHabHash != 0)
+        sessionStorage.setItem(kANIM_SEL_HASH, selAnimHash)
 
-    // if win, change cards! TODO CHANGE THE LOGIC LATER
-    if (sessionStorage.getItem(kSEL_COMPARE) == "true") {
-        alert('correct!')
-        changeCards()
-    }
+        return resolve({status: 'done'})
+    })
 }
 
 
@@ -320,11 +332,52 @@ function setSelected(id, is_animal) {
 
 
 
+
+
 /**
- * Generates the Google Drive URL for an image based on its ID.
- * @param {string} id the ID of the image
- * @returns {string} the Google Drive URL for the image
+ * Check when two animals are matched, and mark them as correct. 
+ * Most correct answers has an info card. If all three are right, then
+ * the cards will change.
  */
-function getDriveURL(id) {
-    return `https://drive.google.com/thumbnail?id=${id}`
+function winCheck() {
+    return new Promise((resolve) => {
+        // get win state and the selected hab and anim
+        let win = sessionStorage.getItem(kSEL_COMPARE) == 'true'
+        let selAnim = sessionStorage.getItem(kANIM_SEL)
+        let selHab = sessionStorage.getItem(kHAB_SEL)
+        // if they did not get the animals right (and habitat and animal are not null)
+        if (!win && selAnim != "" && selHab != 0) {
+            let habElem = getElement(selHab)
+            if (!habElem.classList.contains('wrong')) { habElem.classList.toggle('wrong') }
+            if (habElem.classList.contains('selected')) { habElem.classList.toggle('selected') }
+        }
+        // if they did get the animal-habitat pair right
+        if (win) {
+            // update win count
+            let winCount = JSON.parse(sessionStorage.getItem(kCORRECT))
+            sessionStorage.setItem(kCORRECT, JSON.stringify(winCount += 1))
+
+            // set the two selected classes to right and remove selected
+            getElement(selAnim).classList.toggle('right')
+            getElement(selAnim).classList.toggle('selected')
+            getElement(selHab).classList.toggle('right')
+            getElement(selHab).classList.toggle('selected')
+            // remove them from SEL
+            sessionStorage.setItem(kANIM_SEL, "")
+            sessionStorage.setItem(kHAB_SEL, 0)
+            // get rid of any of the wrongs
+            let animContainer = getElement('animalContainer')
+            let habContainer = getElement('habitatContainer')
+            animCardCont = animContainer.children
+            habCardCont = habContainer.children
+            for (let i = 0; i < animCardCont.length; i++) {
+                let animImg = animCardCont[i].children[0]
+                let habImg = habCardCont[i].children[0]
+                if (animImg.classList.contains('wrong')) { animImg.classList.toggle('wrong') }
+                if (habImg.classList.contains('wrong')) { habImg.classList.toggle('wrong') }
+            }
+
+            if (sessionStorage.getItem(kCORRECT) == '3') { changeCards() }
+        }
+    })
 }

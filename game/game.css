@@ -52,3 +52,26 @@
 .selected {
   border: 5px solid black;
 }
+
+
+.containerLabel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+
+.wrong {
+  filter: grayscale(100%) sepia(100%) saturate(1000%) hue-rotate(-50deg);
+  border: 5px solid red;
+  pointer-events: none;
+}
+
+
+.right {
+  filter: grayscale(100%) sepia(100%) saturate(1000%) hue-rotate(+50deg);
+  border: 5px solid green;
+  pointer-events: none;
+}

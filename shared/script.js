@@ -74,3 +74,12 @@ function shuffleArray(array,rep = 1) {
   }
   return array
 }
+
+/**
+ * Generates the Google Drive URL for an image based on its ID.
+ * @param {string} id the ID of the image
+ * @returns {string} the Google Drive URL for the image
+ */
+function getDriveURL(id) {
+    return `https://drive.google.com/thumbnail?id=${id}`
+}

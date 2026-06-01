@@ -1,44 +1,120 @@
 {
-    "habitat1": {
+    "africa": {
         "amur_tiger": {
             "pic": "1YjHC_oeLbWBUoxWQqKpDH3Wi5Ywabu00",
-            "habitat": "1nB251FBtSAydhSoIhdynhlw3pZAEWlhi"
+            "habitat": "1nB251FBtSAydhSoIhdynhlw3pZAEWlhi",
+            "slides": []
         },
         "asian_elephant": {
             "pic": "1Uq6yBvTJ3tmaftqkUxNsQOT3eC4Bk6vx",
-            "habitat": "1kCs51gP2uK5EV4C9eBd2K9rZR_6twkld"
-        },
-        "animal3": {
-            "pic": "",
-            "habitat": ""
+            "habitat": "1kCs51gP2uK5EV4C9eBd2K9rZR_6twkld",
+            "slides": []
         }
     },
-    "habitat2": {
-        "animal7": {
-            "pic": "",
-            "habitat": ""
+    "other": {
+        "birds_for_buck": {
+            "pic": "1XYJKdXEWC0e3WuRvLpMpUMXSD99V_5wX",
+            "habitat": "19wWnf33zlO1NO20fod70FhutYdGhP05T"
         },
-        "animal8": {
-            "pic": "",
-            "habitat": ""
+        "black_bear": {
+            "pic": "148n09RRKvEVlande63vv_Du29UbNj4XL",
+            "habitat": "1WHBhFjursBCAVDzR4ay-4u3WbS4mYMjV"
         },
-        "animal9": {
-            "pic": "",
-            "habitat": ""
-        }
-    },
-    "habitat3": {
-        "animal13": {
-            "pic": "",
-            "habitat": ""
+        "black_rhino": {
+            "pic": "19Cy-LDBbmIVn7WJ2fsIeH4rKihkdtm67",
+            "habitat": "1B_HU5z68Pnnbj1r8zknizMjkbrV1Mzcd"
         },
-        "animal14": {
-            "pic": "",
-            "habitat": ""
+        "bongo": {
+            "pic": "1xcTGJ8fG480t-PJ_jvyZib3BDN9HPE-l",
+            "habitat": "1i9ODYn5CXkqBpWopOyXwd39sQmZmqmDD"
         },
-        "animal15": {
-            "pic": "",
-            "habitat": ""
+        "condors": {
+            "pic": "1RJqmm5Vsqu0wZ66xi7NQJj49gWTuz9V8",
+            "habitat": "19ybLvBPpShLoiJHQDfMYDHrIm8eiwyd-"
+        },
+        "construction": {
+            "pic": "1OvBqHB476JaOfyaD8x6MM9cVl-UBbdyH",
+            "habitat": "1EbcMEPBd7bHo8FUsN_LO7opWopcTzuHf"
+        },
+        "cougar": {
+            "pic": "1paNVFnDDLX8W95U4dWHWgjLL2asV4Qyg",
+            "habitat": "1v-2H6rPSrayaDILciFRpivvFw6GT_Kp9"
+        },
+        "duck": {
+            "pic": "1XURg4TcQTXtEitexktx4Yfw5aw0y2Cn8",
+            "habitat": "1uEZXaK2Mw5wZ3ikJ8wdJJp2uNtzyheyL"
+        },
+        "fruit_dove": {
+            "pic": "1Wy4kQbFvx5_CcdrrjH5vpWPeGw5_UU4b",
+            "habitat": "1OyUmRCVf4pt39ziPCwPvvniX8MjTabPn"
+        },
+        "giraffe": {
+            "pic": "1-Jrm0Kv-JieS5LOfmI2ox1MS1mYY0LpJ",
+            "habitat": "1C6cgAR0QZ8oyPsYOcEuHTY9L-N3wfy2F"
+        },
+        "mountain_goat": {
+            "pic": "1NPCtsC4Pp5GNO5_qGnx-vOr_ml7HblL7",
+            "habitat": "1LhGNiVAOLov28oVKR2iIVULkyFNQ4wAH"
+        },
+        "pet_goat": {
+            "pic": "1WBfTLUYbjdWoL4YZlm8Jhals6ZA5QvTv",
+            "habitat": "14IU96HJCsGO15Yn9mXXPUls1AytJ7pMu"
+        },
+        "guinea_pig": {
+            "pic": "1vkoPYLkLZDgovcLiZvpMYiwG4q5gAG_A",
+            "habitat": "1g7V9Hrsmk3dtREVubsvbH9N_f-dn8VUL"
+        },
+        "harbor_seal": {
+            "pic": "1Fl_vXctig_qmV3HGJwcJbqmiVcOVQxEZ",
+            "habitat": "1NA6XRni1QCHFWnBzGst4KwWABmTvRScQ"
+        },
+        "penguin": {
+            "pic": "1wF-VOK_lXEcO0MG5FGdzWSjpQgiS2jjm",
+            "habitat": "1GfyvUNVq56qxD7fd_djOuO-9R2C4qFt8"
+        },
+        "chimpanzee": {
+            "pic": "1VgFTYTnFb-HGKNdP6lgC-brrI58-8xV2",
+            "habitat": "1WvU6HTkqRJEb_AJdPlSjknsCuhWI9_O5"
+        },
+        "orange_orangutan": {
+            "pic": "1HG59jMsvb7Q3cN7rka_ySdhLJpfLPY3V",
+            "habitat": "1w9DldNcHtJ-lbZXyehUTCUIxIFRXKzsT"
+        },
+        "white_monkey": {
+            "pic": "1hcsx4tYaq198_Z4tQSakXfAtAJcRVipP",
+            "habitat": "1hJqoLmzyF1MvAMYV5x9Yv1BlZilvpFZz"
+        },
+        "pheasant": {
+            "pic": "1koOiio4Md-sjnLRI7eaAcBXuRJCPB9On",
+            "habitat": "1ouFRQfArB6L5LvNMdHoEdyqU95Ebc3L2"
+        },
+        "polar_bear": {
+            "pic": "1yoy8vKyvf_2bQ2z6PoAm73O5pPSSsxwg",
+            "habitat": "1hpmM31jTa6J_MJdfS6fLCZw7f2lUKeN6"
+        },
+        "river_otter": {
+            "pic": "1Sp3jAWYV4HCPSwHitjFbGNuphd2t0z5X",
+            "habitat": "1OTNa4gf2jI-GBtW4d8r7F8e3hsL9tziK"
+        },
+        "snowy_owl": {
+            "pic": "1z63cP949Y6t9OChIawJAszupGen4xPDo",
+            "habitat": "1UDcwQFht10t4MgMSlsJvmv3nCI1hPhxU"
+        },
+        "spotted_neck_otter": {
+            "pic": "1-uQDlvy8DGtM-dzZ_xc-qpac147ZU7E5",
+            "habitat": "1OwuBCWAuIZPCZDV_BqX7cFmwkOTHDzS9"
+        },
+        "big_tortoise": {
+            "pic": "17h0ERb2egF-n50k3lro_YRG1qJquklPl",
+            "habitat": "11uuMM7KJMz2KCZbNkAJSmHEBu3cwK6I3"
+        },
+        "small_tortoise": {
+            "pic": "1_9cn2o327HWArPTzAp4bkWpPM0X7luGK",
+            "habitat": "1Jx7ivQfUUd-xytvgOJN5BEd4ypvMFr_O"
+        },
+        "turtle": {
+            "pic": "1xdoBiqGuK5YxzxcRfYt2OWx6aWB8v6fI",
+            "habitat": "16Te-22Qw0HhMohVijY1oWWVrGZhFGMzN"
         }
     }
 }
