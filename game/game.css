@@ -36,6 +36,7 @@
   height: 300px;        
   object-fit: cover;   
   margin: 1vw;
+  border: 1px solid black;
 }
 
 /* A container for the image cards */
@@ -49,11 +50,12 @@
   filter: grayscale(75%);
 }
 
+/* a class for the selected images */
 .selected {
   border: 5px solid black;
 }
 
-
+/* labels for the habitat and animal section */
 .containerLabel {
   display: flex;
   justify-content: center;
@@ -62,16 +64,14 @@
   font-weight: bold;
 }
 
-
+/* a class for when the selections are wrong */
 .wrong {
   filter: grayscale(100%) sepia(100%) saturate(1000%) hue-rotate(-50deg);
   border: 5px solid red;
-  pointer-events: none;
 }
 
-
+/* a class for when the selections are right */
 .right {
   filter: grayscale(100%) sepia(100%) saturate(1000%) hue-rotate(+50deg);
   border: 5px solid green;
-  pointer-events: none;
 }

@@ -31,7 +31,7 @@ function getElement(id) { return document.getElementById(id) }
  * @param {string} id 
  * @returns any
  */
-function cloneTemplate(id) { return document.getElementById(id).content.cloneNode(true) }
+function cloneTemplate(id) { return getElement(id).content.cloneNode(true) }
 
 /**
  * Generate a hash of a string
@@ -82,4 +82,26 @@ function shuffleArray(array,rep = 1) {
  */
 function getDriveURL(id) {
     return `https://drive.google.com/thumbnail?id=${id}`
+}
+
+/**
+ * Gets whether an element's class list contains a class.
+ * @param {string} elem_id 
+ * @param {string} class_name 
+ * @returns boolean whether the element has the class or not.
+ */
+function hasClass(elem_id, class_name) {
+  return getElement(elem_id).classList.contains(class_name)
+}
+
+/**
+ * Set's the class of a given element.
+ * @param {string} elem_id 
+ * @param {string} class_name 
+ * @param {boolean} on
+ */
+function setClass(elem_id, class_name, on) {
+  // if they want to give the class and it doesn't have it, give the class
+  if (on && !hasClass(elem_id, class_name)) { getElement(elem_id).classList.toggle(class_name) }
+  if (!on && hasClass(elem_id, class_name)) { getElement(elem_id).classList.toggle(class_name) }
 }
