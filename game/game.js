@@ -389,14 +389,34 @@ function winCheck() {
                 if (habImg.classList.contains('wrong')) { habImg.classList.toggle('wrong') }
             }
 
-            // get the info for that animal and display it
+            // display info card
+            setClass('gameContainer', 'hidden', true)
+            setClass('infoContainer', 'hidden', false)
 
-            // reset the score and change cards
-            if (JSON.parse(sessionStorage.getItem(kCORRECT)) >= kWIN_THRES) {
-                sessionStorage.setItem(kCORRECT, 0) 
-                setClass('gameContainer', 'hidden', true)
-                setClass('infoContainer', 'hidden', false)
-            }
+        resolve({status: 'done'})
         }
     })
+}
+
+
+
+
+
+
+
+
+
+
+function winTransition() {
+    // hide info container
+    setClass('infoContainer', 'hidden', true)
+    // if they got three right, change cards
+    // else, just go back to game
+    if (JSON.parse(sessionStorage.getItem(kCORRECT)) >= kWIN_THRES) {
+        sessionStorage.setItem(kCORRECT, 0)
+        changeCards()
+        return
+    }
+    setClass('gameContainer', 'hidden', false)
+
 }
