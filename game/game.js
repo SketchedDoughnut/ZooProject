@@ -16,6 +16,8 @@ const kANIM_SLIDES = 'animal slides' // the slides of more photos of animals to 
 const kMAX_CARDS = 3 // how many cards to have
 const kWIN_THRES = 3 // a threshold for how many they have to get right to win
 const kCORRECT = 'correct count' // how many are correct
+const kINFO_CARDS = 'info cards' // list of all three info cards
+const kINFO_CARDS_INDEX = 'info cards index' // the current card we're on
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -40,6 +42,7 @@ window.addEventListener("load", function() {
     sessionStorage.setItem(kLAST_ANIMALS, JSON.stringify([]))
     sessionStorage.setItem(kCORRECT, JSON.stringify(0))
     // load the data and parse it, then load the first cards, then hide the loading page
+    // new Promise(() => { setClass() })
     loadData().then(() => {
     changeCards().then(() => {
     isElementLoaded("#loadingContainer").then(() => {
@@ -149,11 +152,12 @@ function changeCards() {
             animalContainer.replaceChildren()
             habitatContainer.replaceChildren()
 
-            // reset the selections
+            // reset the selections, hashes, win comparison, scores, etc
             sessionStorage.setItem(kHAB_SEL, 0)
             sessionStorage.setItem(kANIM_SEL, '')
             sessionStorage.setItem(kSEL_COMPARE, false)
             sessionStorage.setItem(kANIM_SEL_HASH, 0)
+            sessionStorage.setItem(kCORRECT, 0)
 
             // load three random animals (from a habitat if enabled)
             let animals;
@@ -310,6 +314,12 @@ function setSelected(id, is_animal) {
             // else remove selected if its in the class list
             let imgID = imgElem.id
             if (imgID == id) { 
+                // if the one we are selecting contains "right" or "wrong", remove selected and continue
+                if (imgElem.classList.contains('right')) {
+                    setClass(imgElem.id, 'selected', false)
+                    continue
+                }
+
                 // toggle the selected
                 imgElem.classList.toggle('selected')
                 // if we toggled 'selected' in the img and its gone, we are un-selecting
@@ -359,6 +369,9 @@ function winCheck() {
         // if they did not get the animals right (and habitat and animal are not null)
         if (!win && selAnim != "" && selHab != 0) {
             let habElem = getElement(selHab)
+            setClass(selAnim, 'selected', false)
+            sessionStorage.setItem(kANIM_SEL, "")
+            sessionStorage.setItem(kHAB_SEL, 0)
             setClass(selHab, 'wrong', true)
             setClass(selHab, 'selected', false)
         }
@@ -389,12 +402,14 @@ function winCheck() {
                 if (habImg.classList.contains('wrong')) { habImg.classList.toggle('wrong') }
             }
 
-            // display info card
-            setClass('gameContainer', 'hidden', true)
-            setClass('infoContainer', 'hidden', false)
+            // if they got all right, show the three info cards
+            // and then 
+            if (JSON.parse(sessionStorage.getItem(kCORRECT)) >= 3) { loadInfoCards() }
 
-        resolve({status: 'done'})
         }
+        
+        resolve({status: 'done'})
+
     })
 }
 
@@ -407,16 +422,85 @@ function winCheck() {
 
 
 
-function winTransition() {
-    // hide info container
+function loadInfoCards() {
+    // hide everything besides loading
     setClass('infoContainer', 'hidden', true)
-    // if they got three right, change cards
-    // else, just go back to game
-    if (JSON.parse(sessionStorage.getItem(kCORRECT)) >= kWIN_THRES) {
-        sessionStorage.setItem(kCORRECT, 0)
-        changeCards()
+    setClass('gameContainer', 'hidden', true)
+    setClass('loadingContainer', 'hidden', false)
+
+     // get info container and clear it
+    let infoCont = getElement('infoContainer')
+    infoCont.replaceChildren()
+
+    // load images, text, etc for each of the animals
+    let onlyAnimals = JSON.parse(sessionStorage.getItem(kONLY_ANIMAL))
+    let animCardCont = getElement('animalContainer').children
+    // go through each animal card and gather animal data that do have info
+    let animInfo = {}
+    for (let i = 0; i < animCardCont.length; i++) {
+        // check if they have info, if they do add animal name to dict
+        let animName = animCardCont[i].children[0].id
+        let animData = onlyAnimals[animName]
+        if (!animData['has_info']) { continue }
+        animInfo[animName] = animData
+    }
+
+    // if there are no animals, just have a next or home button
+    if (Object.keys(animInfo).length <= 0) {
+        // create container
+        let butDiv = document.createElement('div')
+        butDiv.classList.toggle('home_next_button_container')
+        // create the next button
+        let nextBut = document.createElement('button')
+        nextBut.classList.toggle('home_next_button')
+        nextBut.innerText = 'Next'
+        nextBut.onclick = changeCards
+        // create the home button
+        let homeBut = document.createElement('button')
+        homeBut.classList.toggle('home_next_button')
+        homeBut.innerText = 'Home'
+        homeBut.onclick = () => redirect('../landing')
+        
+        // append buttons to div, div to container
+        butDiv.appendChild(nextBut)
+        butDiv.appendChild(homeBut)
+        infoCont.appendChild(butDiv)
+        
+        // show this and hide everything else
+        setClass('loadingContainer', 'hidden', true)
+        setClass('infoContainer', 'hidden', false)
         return
     }
-    setClass('gameContainer', 'hidden', false)
+    
+    // load the info card template
+    let infoTemplate = cloneTemplate('infoCard')
 
+    // create a list of all of the info cards to scroll through, and index
+    let infoCardList = []
+    let infoCardIndex = 0
+
+    // get all of the specific elements
+    let keys = Object.keys(animInfo)
+    for (let i = 0; i < keys.length; i++) {
+        // create template clone
+        let infoClone = infoTemplate.cloneNode(true)
+        
+        // get all of the data
+        let animName = keys[i]
+        let inf = animInfo[animName]['info']
+        let slides = inf['slides']
+        let nat_hab = inf['natural_hab']
+        let zoo_hab = inf['zoo_hab']
+        let consv = inf['conservation']
+
+        // set all of the data
+        infoClone.querySelector('.animName').innerText = animName
+        infoClone.querySelector('.info_slideshow_container.info.nat_hab').innerText = nat_hab
+        infoClone.querySelector('.info_slideshow_container.info.zoo_hab').innerText = zoo_hab
+        infoClone.querySelector('.info_slideshow_container.info.consv').innerText = consv
+        // infoClone.querySelector('.info_slideshow_container.slideshow)
+    }
+
+    sessionStorage.setItem(kINFO_CARDS, JSON.stringify(infoCardList))
+    sessionStorage.setItem(kINFO_CARDS_INDEX, infoCardIndex)
 }

@@ -1,146 +1,450 @@
 {
-    "africa": {
+    "other": {
         "amur_tiger": {
             "pic": "1YjHC_oeLbWBUoxWQqKpDH3Wi5Ywabu00",
             "habitat": "1nB251FBtSAydhSoIhdynhlw3pZAEWlhi",
-            "slides": []
+            "has_info": true,
+            "info": {
+                "slides": [
+                    "19irO76pDwdOfAFIkpvQlVWwwZlXGpNXa",
+                    "1qBAHapsBbQe4Lla15KkASKJJSS7Os9Tw",
+                    "1AvkdaCTU1o-B02-Fmwe19tu2Ntc66r3B",
+                    "1uhDBQKODVN6H2q5SQdFT6gN_l8k6paN7",
+                    "1v1QGsHplx4zUzUyy4twMxFPK8lPw40Wb",
+                    "1MKWHpmmbLwvQIFcjrSWdW3YANceB0IrC"
+                ],
+                "natural_hab": "The Amur tiger lives in the high altitudes of Russia and Asia. They are used to harsh climates and long winters.",
+                "zoo_hab": "In the zoo, a rocky hill creates the base of the habitat. Trees, grass, and logs are spread throughout, and a deep pond is in the middle of the hill. A wooden platform with toys and nesting is a place for the tigers to sunbathe. The tigers have a shelter, which is most likely some sort of cave out of view.",
+                "conservation": "The Amur tiger is in many human conflicts. Humans are poaching them and their prey, which has decreased their population to around 600 tigers as of 2025.\n\nForest fires and logging have caused habitat loss.",
+                "fun_fact": ""   
+            }
         },
         "asian_elephant": {
             "pic": "1Uq6yBvTJ3tmaftqkUxNsQOT3eC4Bk6vx",
             "habitat": "1kCs51gP2uK5EV4C9eBd2K9rZR_6twkld",
-            "slides": []
-        }
-    },
-    "other": {
+            "has_info": true,
+            "info": {
+                "slides": [
+                    "13eDfS9qzvMhN4BUWg8BNfnRNf2z_1q_k",
+                    "1F_kkrKzY4Ut21tgA9AmX4sSVJbsklg3F",
+                    "11jcHUaseUkQS9NqbNdc1PFyOO3lvFbq2",
+                    "1Plh4rk2Ri1Q4BypwGE_T60n_B5ph5jKe",
+                    "1d5obls9RzGO-yqiwcJWG8kmg-cjeoohJ",
+                    "1lQkQ0b7sBYGD24oAMvkWLRG9VGmpCAWK"
+                ],
+                "natural_hab": "The Asian elephant lives in environments ranging from wet forests to dry green lands. They need lots of open space and ways to escape the sun. A permanent water source allows temperature control and enrichment.",
+                "zoo_hab": "The zoo designates a large seperate area for their asian elephants. Forest Hall, a big indoor area kept at 70 degrees, provides shade from the sun and has some toys for the elephants to play with. The elephant pool is a 4 foot deep water source with sand for cushioning. Toys are seen in the pool and in each space the elephant has. The areas consist of flat dirt and dust with some logs. Feeders are spread throughout each area.",
+                "conservation": "The Asian elephant has been endangered since 1986 due to many reasons. Such as being used for logging and hunted for their ivory tusks.\n\nDevelopment and agriculture have destroyed their habitat.",
+                "fun_fact": ""   
+            }
+        },
         "birds_for_buck": {
             "pic": "1XYJKdXEWC0e3WuRvLpMpUMXSD99V_5wX",
             "habitat": "19wWnf33zlO1NO20fod70FhutYdGhP05T",
-            "slides": []
+            "has_info": false,
+            "info": {
+                "slides": [],
+                "natural_hab": "",
+                "zoo_hab": "",
+                "conservation": "",
+                "fun_fact": ""   
+            }
         },
         "black_bear": {
             "pic": "148n09RRKvEVlande63vv_Du29UbNj4XL",
             "habitat": "1WHBhFjursBCAVDzR4ay-4u3WbS4mYMjV",
-            "slides": []
+            "has_info": false,
+            "info": {
+                "slides": [],
+                "natural_hab": "",
+                "zoo_hab": "",
+                "conservation": "",
+                "fun_fact": ""   
+            }
+        },
+        "eagle": {
+            "pic": "1BEjK93VT-z8kpuOOyUvNXHgJWC5MDuhZ",
+            "habitat": "1x2N0Ickvy0Od4JvEAe0xHuWX23U74nBu",
+            "has_info": false,
+            "info": {
+                "slides": [],
+                "natural_hab": "",
+                "zoo_hab": "",
+                "conservation": "",
+                "fun_fact": ""   
+            }
         },
         "black_rhino": {
             "pic": "19Cy-LDBbmIVn7WJ2fsIeH4rKihkdtm67",
             "habitat": "1B_HU5z68Pnnbj1r8zknizMjkbrV1Mzcd",
-            "slides": []
+            "has_info": true,
+            "info": {
+                "slides": [
+                    "1i_wSgL1wLhBfLRAIgeuyFKOBZK62ajjs",
+                    "1kjXrHemimdRstMsIrwJJ-EmjxSCLphJY",
+                    "19Cy-LDBbmIVn7WJ2fsIeH4rKihkdtm67",
+                    "1vP_1-0gkIZNac11gea--J_aZZKefP2hk",
+                    "18nb8_5_bnmLYJI97EV_QwpxHm067Pcql"
+                ],
+                "natural_hab": "The Black Rhino lives in the grasslands, savannas, and forests of South Africa. They need lots of woody vegetation and water sources.",
+                "zoo_hab": "The many areas at the zoo provide the Black rhino with lots of space. Rocks and trees on top of dusty dirt mimic the natural land of a savanna. Toys, scratchers, and feeders are spread out to create enrichment and reasons for the rhinos to move about.",
+                "conservation": "The Black rhino has been endangered since 1996. Humans have impacted their population heavily because of habitat loss and climate change.\n\nIllegal poaching of their horns for traditional medicine or as a prize/trophy is another threat to their population.",
+                "fun_fact": ""   
+            }
         },
         "bongo": {
             "pic": "1i9ODYn5CXkqBpWopOyXwd39sQmZmqmDD",
             "habitat": "1xcTGJ8fG480t-PJ_jvyZib3BDN9HPE-l",
-            "slides": []
+            "has_info": false,
+            "info": {
+                "slides": [],
+                "natural_hab": "",
+                "zoo_hab": "",
+                "conservation": "",
+                "fun_fact": ""   
+            }
         },
         "condors": {
             "pic": "1RJqmm5Vsqu0wZ66xi7NQJj49gWTuz9V8",
             "habitat": "19ybLvBPpShLoiJHQDfMYDHrIm8eiwyd-",
-            "slides": []
+            "has_info": true,
+            "info": {
+                "slides": [
+                    "1w62ovyoRxLvi2qzEsEeNkD6XdG80zmiS",
+                    "1RJqmm5Vsqu0wZ66xi7NQJj49gWTuz9V8",
+                    "1P8iQTnfwpXYOWhLBqowx_hiY0QE0kjCR",
+                    "15T9j0rK4T7pPtXA5ZsjpyuBre4NYaub7"
+                ],
+                "natural_hab": "California condors nest in tall trees or on cliffsides. They primarily live in large areas of undeveloped land.",
+                "zoo_hab": "The California condors at the zoo have a large netted area to fly around in with many perches to rest and nest on. Logs, running water, and grass create the environment of a savanna. Each bird has a tag to be able to identify them if they escape.",
+                "conservation": "TODO",
+                "fun_fact": ""   
+            }
         },
         "construction": {
             "pic": "1OvBqHB476JaOfyaD8x6MM9cVl-UBbdyH",
             "habitat": "1EbcMEPBd7bHo8FUsN_LO7opWopcTzuHf",
-            "slides": []
+            "has_info": false,
+            "info": {
+                "slides": [],
+                "natural_hab": "",
+                "zoo_hab": "",
+                "conservation": "",
+                "fun_fact": ""   
+            }
         },
         "cougar": {
             "pic": "1paNVFnDDLX8W95U4dWHWgjLL2asV4Qyg",
             "habitat": "1v-2H6rPSrayaDILciFRpivvFw6GT_Kp9",
-            "slides": []
+            "has_info": false,
+            "info": {
+                "slides": [],
+                "natural_hab": "",
+                "zoo_hab": "",
+                "conservation": "",
+                "fun_fact": ""   
+            }
         },
         "duck": {
             "pic": "1XURg4TcQTXtEitexktx4Yfw5aw0y2Cn8",
             "habitat": "1uEZXaK2Mw5wZ3ikJ8wdJJp2uNtzyheyL",
-            "slides": []
+            "has_info": false,
+            "info": {
+                "slides": [],
+                "natural_hab": "",
+                "zoo_hab": "",
+                "conservation": "",
+                "fun_fact": ""   
+            }
+        },
+        "buckingham": {
+            "pic": "1fPPoJKXW9egLvuiIKXgsqG1-t1CwCkMo",
+            "habitat": "1LzVowsyJ7gKAlSpSS0Ent6Nf4pYPbsJi",
+            "has_info": true,
+            "info": {
+                "slides": [
+                    "1LzVowsyJ7gKAlSpSS0Ent6Nf4pYPbsJi",
+                    "1fPPoJKXW9egLvuiIKXgsqG1-t1CwCkMo",
+                    "13B9Qrpzc62f_J95MpghWUg5IRN-nzxWt",
+                    "12096faZOPi6FhWlwdF7BLgoSzBWkEafI",
+                    "1hQcKOMkZx2uZa19ziRr5wUgxcFa4mDje",
+                    "1K8rtuuBI-fOrDvXBo_9MwJS4YNqZoO63",
+                    "1UfJTzfxkn9ikNtBKj0H0_2d7cznkxmNU",
+                    "1xGNdkQ1ABRb0s95rqLLWonzXCl1YDwGf",
+                    "1tOmJJx4QoJFs_Tot1fWjOwQu5KiTO0og",
+                    "1XYJKdXEWC0e3WuRvLpMpUMXSD99V_5wX"
+                ],
+                "natural_hab": "TODO",
+                "zoo_hab": "TODO",
+                "conservation": "TODO",
+                "fun_fact": ""
+            }
         },
         "fruit_dove": {
             "pic": "1Wy4kQbFvx5_CcdrrjH5vpWPeGw5_UU4b",
             "habitat": "1OyUmRCVf4pt39ziPCwPvvniX8MjTabPn",
-            "slides": []
+            "has_info": true,
+            "info": {
+                "slides": [
+                    "1Rw1xgUMFEt_rtfFiLBtRjrgZf3tsZhH8",
+                    "1OyUmRCVf4pt39ziPCwPvvniX8MjTabPn",
+                    "1mtI9zErKz7BJFr7atYmorq52LrEF-NUZ",
+                    "1Wy4kQbFvx5_CcdrrjH5vpWPeGw5_UU4b"
+                ],
+                "natural_hab": "The Beautiful fruit dove lives in the rainforests of New Guinea and the surrounding islands. The forests are medium elevation and supply many types of fruit. The color of the bird helps it blend into its environment.",
+                "zoo_hab": "The Beautiful fruit dove at the zoo is in an enclosure with many other bird types. They have a dirt wall with holes that provide shelter. Trees, nests/birdhouses, and feeders create many levels.",
+                "conservation": "The Beautiful fruit dove is not in danger, but it does play an important role in its environment. The bird eats fruit whole and, in return, spreads the seeds of said fruit through its poop.",
+                "fun_fact": ""   
+            }
         },
         "giraffe": {
             "pic": "1-Jrm0Kv-JieS5LOfmI2ox1MS1mYY0LpJ",
             "habitat": "1C6cgAR0QZ8oyPsYOcEuHTY9L-N3wfy2F",
-            "slides": []
+            "has_info": true,
+            "info": {
+                "slides": [
+                    "1-829Hh8j8n1XCJqMoiskMCRYPAGvCRpj",
+                    "1If4zQuEEKtOVUZzIwTB4XEvPd7w9iV2Q",
+                    "1-Jrm0Kv-JieS5LOfmI2ox1MS1mYY0LpJ"
+                ],
+                "natural_hab": "Giraffes live in savannas and eat leaves and fruits off of trees. They need water every few days, especially if their diet is dry.",
+                "zoo_hab": "At the zoo, the giraffes have multiple areas to roam around in. They have water, dusty floors, and some grass and rocks. The Oregon Zoo is home to representatives of two subspecies, the reticulated giraffe and the Masai giraffe.",
+                "conservation": "TODO",
+                "fun_fact": ""   
+            }
         },
         "mountain_goat": {
             "pic": "1NPCtsC4Pp5GNO5_qGnx-vOr_ml7HblL7",
             "habitat": "1LhGNiVAOLov28oVKR2iIVULkyFNQ4wAH",
-            "slides": []
+            "has_info": false,
+            "info": {
+                "slides": [],
+                "natural_hab": "",
+                "zoo_hab": "",
+                "conservation": "",
+                "fun_fact": ""   
+            }
         },
         "pet_goat": {
             "pic": "1WBfTLUYbjdWoL4YZlm8Jhals6ZA5QvTv",
             "habitat": "14IU96HJCsGO15Yn9mXXPUls1AytJ7pMu",
-            "slides": []
+            "has_info": false,
+            "info": {
+                "slides": [],
+                "natural_hab": "",
+                "zoo_hab": "",
+                "conservation": "",
+                "fun_fact": ""   
+            }
         },
         "guinea_pig": {
             "pic": "1vkoPYLkLZDgovcLiZvpMYiwG4q5gAG_A",
             "habitat": "1g7V9Hrsmk3dtREVubsvbH9N_f-dn8VUL",
-            "slides": []
+            "has_info": false,
+            "info": {
+                "slides": [],
+                "natural_hab": "",
+                "zoo_hab": "",
+                "conservation": "",
+                "fun_fact": ""   
+            }
         },
         "harbor_seal": {
             "pic": "1Fl_vXctig_qmV3HGJwcJbqmiVcOVQxEZ",
             "habitat": "1NA6XRni1QCHFWnBzGst4KwWABmTvRScQ",
-            "slides": []
+            "has_info": true,
+            "info": {
+                "slides": [
+                    "1Fl_vXctig_qmV3HGJwcJbqmiVcOVQxEZ",
+                    "1w9F2qu5sGK90XWxP_NzWoS8HC0x33Bsx",
+                    "14CvhRL2QMd8bs88LcGpS-wFPfYH4QvK1"
+                ],
+                "natural_hab": "The Harbor Seal lives in the cold, deep waters of the Arctic or cool waters. They will leave the sea to rest on sandy, rocky beaches.",
+                "zoo_hab": "At the zoo, the harbor seal has deep water with shade and ice piled around to maintain their temperature. They are provided with dry rocky land to rest on but enjoy swimming with their toys in the water.",
+                "conservation": "The Harbor seal tends to live in heavily fished area. The over fishing cause a serious lake of food for the seals. Fishing nets, whether active or forgotten about, often trap these seals and end up drowning them. :(\n\nWater pollution like chemicals, plastic, and oil spills have shrunken their habitable environment.",
+                "fun_fact": ""   
+            }
         },
         "penguin": {
             "pic": "1wF-VOK_lXEcO0MG5FGdzWSjpQgiS2jjm",
             "habitat": "1GfyvUNVq56qxD7fd_djOuO-9R2C4qFt8",
-            "slides": []
+            "has_info": true,
+            "info": {
+                "slides": [
+                    "1oNEZryDLlUNfJ9giUeAkX7JsdmSXYcVe",
+                    "1I4C-7gThmR4SABEvZKWsdhBkgETrATVt",
+                    "1wF-VOK_lXEcO0MG5FGdzWSjpQgiS2jjm",
+                    "1GfyvUNVq56qxD7fd_djOuO-9R2C4qFt8"
+                ],
+                "natural_hab": "The Humboldt Penguin lives on rocky shores with lots of cold water.",
+                "zoo_hab": "The Oregon zoo provides penguins with moving water amidst rocky hills. They are in a roofed environment to maintain the temperature of the enclosure. Ice piles are also available to provide temperature control.",
+                "conservation": "The Humboldt Penguin suffers from overfishing by humans and, in turn doesn’t have enough food to thrive.\n\nTheir nesting material, seabird guano, is harvested to be used as a fertilizer, making it harder to raise children.",
+                "fun_fact": ""   
+            }
         },
         "chimpanzee": {
             "pic": "1VgFTYTnFb-HGKNdP6lgC-brrI58-8xV2",
             "habitat": "1WvU6HTkqRJEb_AJdPlSjknsCuhWI9_O5",
-            "slides": []
+            "has_info": false,
+            "info": {
+                "slides": [],
+                "natural_hab": "",
+                "zoo_hab": "",
+                "conservation": "",
+                "fun_fact": ""   
+            }
         },
         "orange_orangutan": {
             "pic": "1HG59jMsvb7Q3cN7rka_ySdhLJpfLPY3V",
             "habitat": "1w9DldNcHtJ-lbZXyehUTCUIxIFRXKzsT",
-            "slides": []
+            "has_info": false,
+            "info": {
+                "slides": [],
+                "natural_hab": "",
+                "zoo_hab": "",
+                "conservation": "",
+                "fun_fact": ""   
+            }
         },
         "white_monkey": {
             "pic": "1hcsx4tYaq198_Z4tQSakXfAtAJcRVipP",
             "habitat": "1hJqoLmzyF1MvAMYV5x9Yv1BlZilvpFZz",
-            "slides": []
+            "has_info": false,
+            "info": {
+                "slides": [],
+                "natural_hab": "",
+                "zoo_hab": "",
+                "conservation": "",
+                "fun_fact": ""   
+            }
         },
         "pheasant": {
             "pic": "1koOiio4Md-sjnLRI7eaAcBXuRJCPB9On",
             "habitat": "1ouFRQfArB6L5LvNMdHoEdyqU95Ebc3L2",
-            "slides": []
+            "has_info": true,
+            "info": {
+                "slides": [
+                    "1upmlMayA0FCyvwDJpzpV_HFMFV4pkmWL",
+                    "1WPAxVWKj-nPyKB4WX2K4N0GQxNcp0jI5",
+                    "1zXoU_IPXavC6WESBKZX-swMTwbgv_LnL"
+                ],
+                "natural_hab": "The Palawan Peacock Pheasant lives in dense, humid forests with lots of cover and shelter.",
+                "zoo_hab": "The climate inside the zoo's aviary is warm and humid. A small stream runs through moist dirt and the tall trees where most of the birds tend to be. Nest provides shelter for the flying bird and open cages with nesting for the grounded ones.",
+                "conservation": "The Palawan Peacock Pheasant loses its dense forest habitat to deforestation.\n\nIt's looks make it desired as a pet, but it is illegal to own and trade them because they are endangered. If not taken as pets, they are killed for their meat to supply the exotic meat trade.",
+                "fun_fact": ""   
+            }
         },
         "polar_bear": {
             "pic": "1yoy8vKyvf_2bQ2z6PoAm73O5pPSSsxwg",
             "habitat": "1hpmM31jTa6J_MJdfS6fLCZw7f2lUKeN6",
-            "slides": []
+            "has_info": true,
+            "info": {
+                "slides": [
+                    "1zVtzVp7vPCiEh4IRg1zFAzltx0GtunDi",
+                    "1b7sFXcHH3PB7uH2s-KTGzQ6sOK1YXU6f",
+                    "1C4M8a--ZshGkMQtxVif_1NHdbyzZHJfY",
+                    "1_TFhAsXwqRQmWHyBzHMNblxszJkO6adM",
+                    "1udHYrLFCl6n6e6PYKsMnHtOnZwFJ8el9",
+                    "1d1AKNS-wNdhKMkZkiwyiTJM9q4UMkcsg",
+                    "1YN8TRGlLCm5ILzeCLtu8WRD930rii-wF",
+                    "1yoy8vKyvf_2bQ2z6PoAm73O5pPSSsxwg",
+                    "1a0Vo7kJ5ko4iaCbQH6Fnmoue9LuJNqSF",
+                    "1k0MvFqv70oBLQJhu0NdGPhKCZiCHofme"
+                ],
+                "natural_hab": "polar bears live in the cold climate of the icy Arctic with access to water.",
+                "zoo_hab": "The polar bear gets a very large enclosure at the zoo. Many levels of rocks and grass are kept cool. Logs and toys keep the bear entertained. A deep area of water allows the bear to keep cool and swim along with ice piles. Some nesting is in a makeshift cave shelter.",
+                "conservation": "Polar bears are affected by global warming and climate change. The increase in temperature melts the ice that they need. The high-temperature waters would cause ice seals, a main source of food, to move away from where the polar bears live.",
+                "fun_fact": ""   
+            }
         },
         "river_otter": {
             "pic": "1Sp3jAWYV4HCPSwHitjFbGNuphd2t0z5X",
             "habitat": "1OTNa4gf2jI-GBtW4d8r7F8e3hsL9tziK",
-            "slides": []
+            "has_info": true,
+            "info": {
+                "slides": ["TODO"],
+                "natural_hab": "The North American river otter lives in large waterways of around 40 miles. They tend to move into beaver dens for shelter near the water.",
+                "zoo_hab": "Within the Oregon Zoo, river otters have running water with logs and rocky land to mimic their natural habitat. A hole in the water leads to a shelter. Toys are found floating about for them to play with.",
+                "conservation": "The North American river otter have been hunted for their fur due to fur trapping in the 19th century. This significantly affected their population.\n\nHabitat loss and pollution destroys the rivers need for the otters to thrive.",
+                "fun_fact": ""   
+            }
+        },
+        "sea_otter": {
+            "pic": "1hx8vbk7mFLujvpw1yn5MrLPuu653afRc",
+            "habitat": "1NA6XRni1QCHFWnBzGst4KwWABmTvRScQ",
+            "has_info": true,
+            "info": {
+                "slides": [
+                    "11UL00j1L5OTKE5-Fd9gPtldE8d7aXHFm",
+                    "1Oadj9YcEE4swlqDmbzmKvnUHdCup2H_B",
+                    "1Tn7sq_eSFhnrxrrJYeNsQcRO_geICRYY",
+                    "17DGXwo-auMKfooaI4wE3meiNi-kDzB2Z"
+                ],
+                "natural_hab": "Sea otters spend most of their time in the waters of the North Pacific Ocean. They tend to stay in shallower parts of the water in order to stay warm.",
+                "zoo_hab": "Their zoo habitat has deep water with rocky, dry land. There's some shade as well as ice piles to make sure the otters don’t overheat.\n\nSmall seashells can be found at the bottom of the water to provide enrichment for the otters.",
+                "conservation": "The kelp forests that sea otters inhabit are also home to the sea urchin. Sea urchins are invasive and destroy the habitats they come across, such as kelp forests. The sea otters eat the sea urchins, which helps the kelp forests thrive, creating a habitat that supports a diverse sea life.\n\nSea otters have been hunted for their fur and became endangered in 1977. Human fishing has had an effect because their nets and boats trap and drown the otters. Pollution of the North Pacific Ocean by oil spills and plastic, among other problems, such as ocean acidification and global warming, have led to a decrease in its population.\n\nLuckily, due to human efforts and conservation, the sea otter population has risen from a few thousand in 1911 to around 130,000 in 2025.",
+                "fun_fact": ""   
+            }
         },
         "snowy_owl": {
             "pic": "1z63cP949Y6t9OChIawJAszupGen4xPDo",
             "habitat": "1UDcwQFht10t4MgMSlsJvmv3nCI1hPhxU",
-            "slides": []
+            "has_info": false,
+            "info": {
+                "slides": [],
+                "natural_hab": "",
+                "zoo_hab": "",
+                "conservation": "",
+                "fun_fact": ""   
+            }
         },
         "spotted_neck_otter": {
             "pic": "1-uQDlvy8DGtM-dzZ_xc-qpac147ZU7E5",
             "habitat": "1OwuBCWAuIZPCZDV_BqX7cFmwkOTHDzS9",
-            "slides": []
+            "has_info": false,
+            "info": {
+                "slides": [],
+                "natural_hab": "",
+                "zoo_hab": "",
+                "conservation": "",
+                "fun_fact": ""   
+            }
         },
         "big_tortoise": {
             "pic": "17h0ERb2egF-n50k3lro_YRG1qJquklPl",
             "habitat": "11uuMM7KJMz2KCZbNkAJSmHEBu3cwK6I3",
-            "slides": []
+            "has_info": false,
+            "info": {
+                "slides": [],
+                "natural_hab": "",
+                "zoo_hab": "",
+                "conservation": "",
+                "fun_fact": ""   
+            }
         },
         "small_tortoise": {
             "pic": "1_9cn2o327HWArPTzAp4bkWpPM0X7luGK",
             "habitat": "1Jx7ivQfUUd-xytvgOJN5BEd4ypvMFr_O",
-            "slides": []
+            "has_info": false,
+            "info": {
+                "slides": [],
+                "natural_hab": "",
+                "zoo_hab": "",
+                "conservation": "",
+                "fun_fact": ""   
+            }
         },
         "turtle": {
             "pic": "1xdoBiqGuK5YxzxcRfYt2OWx6aWB8v6fI",
             "habitat": "16Te-22Qw0HhMohVijY1oWWVrGZhFGMzN",
-            "slides": []
+            "has_info": false,
+            "info": {
+                "slides": [],
+                "natural_hab": "",
+                "zoo_hab": "",
+                "conservation": "",
+                "fun_fact": ""   
+            }
         }
     }
 }

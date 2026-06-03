@@ -35,13 +35,6 @@
     </div>
 
     <div id="infoContainer">
-        <div id="title"></div>
-        <div id="info"></div>
-        <div id="slideshow"></div>
-        <div id="buttons">
-            <button onclick="winTransition()">Continue</button>
-            <button onclick="redirect('../landing')">Home</button>
-        </div>
     </div>
 
     <button onclick="changeCards()">change cards</button>
@@ -63,6 +56,22 @@
 <template id="habitatCard">
     <div class="cardContainer">
         <img class="imageCards" src="../assets/img/the-ol-ham.png">
+    </div>
+</template>
+
+<template id="infoCard">
+    <div id="animName"></div>
+    <div id="info_slideshow_container">
+        <div id="info">
+            <div id="nat_hab"></div>
+            <div id="zoo_hab"></div>
+            <div id="consv"></div>
+        </div>
+        <div id="slideshow"></div>
+    </div>
+    <div id="buttons">
+        <button onclick="changeCards()">Continue</button>
+        <button onclick="redirect('../landing')">Home</button>
     </div>
 </template>
 
