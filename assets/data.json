@@ -125,7 +125,7 @@
                 "name": "California Condor",
                 "natural_hab": "California condors nest in tall trees or on cliffsides. They primarily live in large areas of undeveloped land.",
                 "zoo_hab": "The California condors at the zoo have a large netted area to fly around in with many perches to rest and nest on. Logs, running water, and grass create the environment of a savanna. Each bird has a tag to be able to identify them if they escape.",
-                "conservation": "TODO",
+                "conservation": "When humans use lead bullets used to kill animals the carcass left out can have fragments that the  condors later eat, leading to lead poisoning and their eventual death.",
                 "fun_fact": ""   
             }
         },
@@ -223,7 +223,7 @@
                 "name": "Giraffe (Reticulated, Masai)",
                 "natural_hab": "Giraffes live in savannas and eat leaves and fruits off of trees. They need water every few days, especially if their diet is dry.",
                 "zoo_hab": "At the zoo, the giraffes have multiple areas to roam around in. They have water, dusty floors, and some grass and rocks. The Oregon Zoo is home to representatives of two subspecies, the reticulated giraffe and the Masai giraffe.",
-                "conservation": "TODO",
+                "conservation": "Giraffes are labeled as a vulnerable species. They are affected by climate change and habitat loss due to humans expanding and agriculture. They are also poached for their meat and body parts.",
                 "fun_fact": ""   
             }
         },
@@ -386,7 +386,10 @@
             "habitat": "1OTNa4gf2jI-GBtW4d8r7F8e3hsL9tziK",
             "has_info": true,
             "info": {
-                "slides": ["TODO"],
+                "slides": [
+                "1OTNa4gf2jI-GBtW4d8r7F8e3hsL9tziK",
+                "1Sp3jAWYV4HCPSwHitjFbGNuphd2t0z5X"
+                ],
                 "name": "River otter",
                 "natural_hab": "The North American river otter lives in large waterways of around 40 miles. They tend to move into beaver dens for shelter near the water.",
                 "zoo_hab": "Within the Oregon Zoo, river otters have running water with logs and rocky land to mimic their natural habitat. A hole in the water leads to a shelter. Toys are found floating about for them to play with.",
@@ -441,13 +444,13 @@
         "big_tortoise": {
             "pic": "17h0ERb2egF-n50k3lro_YRG1qJquklPl",
             "habitat": "11uuMM7KJMz2KCZbNkAJSmHEBu3cwK6I3",
-            "has_info": false,
+            "has_info": true,
             "info": {
                 "slides": [],
-                "name": "",
-                "natural_hab": "",
-                "zoo_hab": "",
-                "conservation": "",
+                "name": "African spurred tortoise",
+                "natural_hab": "The African spurred tortoise lives in the harsh climate of the Sahara desert. They are built to survive long days in the sun but still have shelter to escape it. They eat mostly dried grass and weeds.",
+                "zoo_hab": "At the zoo the African spurred tortoise is given a large area outside for visitors to see it but it also has a sheltered area that people can't access that mimics the hot envirorment of the desert. The area previded for it has a hill and many large rocks for sun bathing. Lots of grass and toys are around for enrichment.",
+                "conservation": "The African spurred tortoise is endangered. They suffer from habitat loss by humans as well as being killed for their meat or sold as pets. Over-grazing by livestock creates compitistion for the tortiose.",
                 "fun_fact": ""   
             }
         },
