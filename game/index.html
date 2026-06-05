@@ -7,9 +7,12 @@
     <link rel="icon" type="image/x-icon" href="../assets/img/the-ol-ham.png">
     <link rel="stylesheet" href="../shared/style.css"/>
     <link rel="stylesheet" href="../game/game.css"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> -->
     <script src="../shared/script.js"></script>
-    <script src="../game/game.js"></script>
+    <script src="../game/js/constants.js"></script>
+    <script src="../game/js/card.js"></script>
+    <script src="../game/js/util.js"></script>
+    <script src="../game/js/game.js"></script>
 </head>
 
 <body>
@@ -37,11 +40,11 @@
     <div id="infoContainer">
     </div>
 
-    <button onclick="changeCards()">change cards</button>
+    <!-- <button onclick="changeCards()">change cards</button>
     <button onclick="setDifficulty(kEASY)">set easy</button>
     <button onclick="setDifficulty(kHARD)">set hard</button>
     <button onclick="sessionStorage.clear()">clear session storage</button>
-    <button onclick="window.location.reload()">reload</button>
+    <button onclick="window.location.reload()">reload</button> -->
 </body>
 
 <!-- -------------------------------------------------------------------------------------------------------- -->
@@ -70,8 +73,15 @@
         <div id="slideshow"></div>
     </div>
     <div id="buttons">
-        <button onclick="changeCards()">Continue</button>
-        <button onclick="redirect('../landing')">Home</button>
+        <button id="next">Next</button>
+        <button id="home">Home</button>
+    </div>
+</template>
+
+<template id="noInfoButtons">
+    <div class="home_next_button_container">
+        <button class="home_next_button" onclick="changeCards()">Next</button>
+        <button class="home_next_button" onclick="redirect('../landing')">Home</button>
     </div>
 </template>
 

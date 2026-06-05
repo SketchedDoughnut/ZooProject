@@ -67,9 +67,9 @@
 /* the flex container for the menu buttons */
 .home_next_button_container {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+  justify-content: center; 
+  align-items: center;     
+  height: 50vw;
     
 }
 
