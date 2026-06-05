@@ -1,0 +1,259 @@
+/* the container of the image */
+.loadingImageContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
+/* the loading image itself */
+.loadingImage {
+    clip-path: circle();
+    width: 15vw;
+}
+
+/* the animation to spin the loading image */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.spin {
+  animation: spin 2s linear infinite;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* the container for the animal images */
+.sectionContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* the standardizing of the animal and habitat images */
+.imageCards {
+  display: block;
+  /* width: 400px;         */
+  width: 50vh;
+  height: 300px;        
+  /* height: 35vh; */
+  object-fit: cover;   
+  margin: 1vw;
+  border: 1.5px solid black;
+}
+
+/* A container for the image cards */
+.cardContainer {
+  display: block;;
+  transition: filter 0.3s ease;
+}
+
+/* making them grey when hovered over */
+.cardContainer:hover {
+  filter: grayscale(75%);
+}
+
+/* a class for the selected images */
+.selected {
+  border: 6px solid black;
+}
+
+/* labels for the habitat and animal section */
+.containerLabel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* font-size: 32px; */
+  font-size: 4.5vh;
+  font-weight: bold;
+}
+
+/* a class for when the selections are wrong */
+.wrong {
+  filter: grayscale(100%) sepia(100%) saturate(1000%) hue-rotate(-50deg);
+  border: 5px solid red;
+}
+
+/* a class for when the selections are right */
+.right {
+  filter: grayscale(100%) sepia(100%) saturate(1000%) hue-rotate(+50deg);
+  border: 5px solid green;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* the container for the button container for no info */
+.noinfoContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  /* font-size: 25px; */
+  font-size: 4.5vh;
+}
+
+/* the header within the no info container */
+.noinfoContainer h1 {
+  padding-top: 5vw;
+  margin-bottom: -20vw;
+}
+
+/* the flex container for the menu buttons */
+.noInfoButtonContainer {
+  display: flex;
+  justify-content: center; 
+  align-items: center;     
+  height: 50vw;
+    
+}
+
+/* the menu buttons (start, settings, etc) */
+.noInfoButton {
+  color: black;
+  background-color: #076150;
+  border-color: rgb(90, 19, 19);
+  border-width: 0.5vw;
+  font-size: 2.5vw;
+  font-weight: bolder;
+  min-width: 5vw;
+  min-height: 4.5vw;
+  width: 20vw;
+  margin: .5vw;
+  cursor: pointer;
+}
+
+.homeButtonContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.homeButton {
+  color: black;
+  background-color: #076150;
+  border-color: rgb(90, 19, 19);
+  border-width: 0.5vw;
+  font-size: 1.5vw;
+  font-weight: bolder;
+  min-width: 5vw;
+  min-height: 1.5vw;
+  width: 12.5vw;
+  margin: .5vw;
+  margin-top: 1.5vw;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.infoCardContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid black;
+  padding: 20px;
+}
+
+.animName {
+  align-items: center;
+  font-weight: bolder;
+  font-size: 48px;
+}
+
+.infoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+
+.sectionTitle {
+  font-weight: bold;
+  padding-top: 5px;
+}
+
+/* .slideshow {} */
+
+.menuButtonContainer {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  padding-top: 1.75vh;
+}
+
+.menuButton {
+  color: black;
+  background-color: #076150;
+  border-color: rgb(90, 19, 19);
+  border-width: 0.5vw;
+  font-size: 2.5vw;
+  font-weight: bolder;
+  min-width: 15vw;
+  min-height: 4.5vw;
+  width: 20vw;
+  margin: .5vw;
+  cursor: pointer;
+}

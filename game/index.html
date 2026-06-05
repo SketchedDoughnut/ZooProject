@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+    <link rel="icon" type="image/x-icon" href="../assets/img/the-ol-ham.png">
+    <link rel="stylesheet" href="../shared/style.css"/>
+    <link rel="stylesheet" href="../game/game.css"/>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> -->
+    <script src="../shared/script.js"></script>
+    <script src="../game/js/constants.js"></script>
+    <script src="../game/js/card.js"></script>
+    <script src="../game/js/util.js"></script>
+    <script src="../game/js/game.js"></script>
+</head>
+
+<body>
+
+    <!-- everything relating to the page loading -->
+    <div id="loadingContainer">
+        <h2>Loading...</h2>
+        <!-- the loading image that goes spin -->
+        <div class="loadingImageContainer">
+            <!-- 
+            https://beavertonhigh.wordpress.com/2019/03/05/staff-spotlight-jeffrey-buckingham/
+            -->
+            <img class="loadingImage spin" src="../assets/img/the-ol-ham.png">
+        </div>
+    </div>
+
+    <!-- everything related to the game cards and interactive elements -->
+    <div id="gameContainer">
+        <div class="containerLabel">Animals</div>
+        <section id="animalContainer" class="sectionContainer"></section>
+        <section id="habitatContainer" class="sectionContainer"></section>
+        <div class="containerLabel">Habitats</div>
+        <div class="homeButtonContainer">
+            <button class="homeButton" onclick="redirect('../landing')">Home</button>
+        </div>
+    </div>
+
+    <div id="infoContainer">
+    </div>
+
+    <!-- <button onclick="changeCards()">change cards</button>
+    <button onclick="setDifficulty(kEASY)">set easy</button>
+    <button onclick="setDifficulty(kHARD)">set hard</button>
+    <button onclick="sessionStorage.clear()">clear session storage</button>
+    <button onclick="window.location.reload()">reload</button> -->
+</body>
+
+<!-- -------------------------------------------------------------------------------------------------------- -->
+<!-- ALL TEMPLATE HTML -->
+<!-- -------------------------------------------------------------------------------------------------------- -->
+<template id="animalCard">
+    <div class="cardContainer">
+        <img class="imageCards" src="../assets/img/the-ol-ham.png">
+    </div>
+</template>
+
+<template id="habitatCard">
+    <div class="cardContainer">
+        <img class="imageCards" src="../assets/img/the-ol-ham.png">
+    </div>
+</template>
+
+<template id="infoCard">
+    <div class="infoCardContainer">
+        <div id="animName" class="animName"></div>
+        <div id="info_slideshow_container" class="infoContainer">
+            <div id="info" class="info">
+                <div class="sectionTitle">Natural habitat</div>
+                <div id="nat_hab" class="natHab"></div>
+                <div class="sectionTitle">Zoo habitat</div>
+                <div id="zoo_hab" class="zooHab"></div>
+                <div class="sectionTitle">Conservation</div>
+                <div id="consv" class="consv"></div>
+            </div>
+            <div id="slideshow" class="slideshow"></div>
+        </div>
+        <div id="buttons" class="menuButtonContainer">
+            <button id="next" class="menuButton">Next</button>
+            <button id="home" class="menuButton">Home</button>
+        </div>
+    </div>
+</template>
+
+<template id="noInfoButtons">
+    <div class="noinfoContainer">
+        <h1>
+            No extra info for these animals!
+            <br>
+            Continue?
+        </h1>
+        <div class="noInfoButtonContainer">
+            <button class="noInfoButton" onclick="changeCards()">Continue</button>
+            <button class="noInfoButton" onclick="redirect('../landing')">Home</button>
+        </div>
+    </div>
+</template>
+
+</html>

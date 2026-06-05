@@ -1,0 +1,14 @@
+/* applies to the body of everything */
+html {
+    background-color: #099078; /** https://share.google/IkmJeCQ3kz0CLnvS2 **/
+}
+
+/* hides anything with this class applied */
+.hidden {
+    display: none;
+}
+
+.blur {
+    backdrop-filter: blur(0);
+    filter: blur(10px);
+}
