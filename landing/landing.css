@@ -4,12 +4,6 @@
     text-align: center;
 }
 
-/* The introductory paragraph */
-.intro {
-    position: relative;
-    text-align: center;
-}
-
 /* the flex container for the menu buttons */
 .menuButtonsContainer {
     display: flex;
@@ -47,6 +41,7 @@
 .info-body {
     position: relative;
     text-align: center;
+    font-size: 24px;
 }
 
 /* the footer */
