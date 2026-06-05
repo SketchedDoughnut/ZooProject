@@ -35,6 +35,9 @@
         <section id="animalContainer" class="sectionContainer"></section>
         <section id="habitatContainer" class="sectionContainer"></section>
         <div class="containerLabel">Habitats</div>
+        <div class="homeButtonContainer">
+            <button class="homeButton" onclick="redirect('../landing')">Home</button>
+        </div>
     </div>
 
     <div id="infoContainer">
@@ -63,25 +66,34 @@
 </template>
 
 <template id="infoCard">
-    <div id="animName"></div>
-    <div id="info_slideshow_container">
-        <div id="info">
-            <div id="nat_hab"></div>
-            <div id="zoo_hab"></div>
-            <div id="consv"></div>
+    <div class="infoCardContainer">
+        <div id="animName" class="animName"></div>
+        <div id="info_slideshow_container" class="infoContainer">
+            <div id="info" class="info">
+                <div id="nat_hab" class="natHab"></div>
+                <div id="zoo_hab" class="zooHab"></div>
+                <div id="consv" class="consv"></div>
+            </div>
+            <div id="slideshow" class="slideshow"></div>
         </div>
-        <div id="slideshow"></div>
-    </div>
-    <div id="buttons">
-        <button id="next">Next</button>
-        <button id="home">Home</button>
+        <div id="buttons" class="buttons">
+            <button id="next">Next</button>
+            <button id="home">Home</button>
+        </div>
     </div>
 </template>
 
 <template id="noInfoButtons">
-    <div class="home_next_button_container">
-        <button class="home_next_button" onclick="changeCards()">Next</button>
-        <button class="home_next_button" onclick="redirect('../landing')">Home</button>
+    <div class="noinfoContainer">
+        <h1>
+            No extra info for these animals!
+            <br>
+            Continue?
+        </h1>
+        <div class="noInfoButtonContainer">
+            <button class="noInfoButton" onclick="changeCards()">Continue</button>
+            <button class="noInfoButton" onclick="redirect('../landing')">Home</button>
+        </div>
     </div>
 </template>
 

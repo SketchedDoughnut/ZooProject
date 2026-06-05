@@ -239,9 +239,7 @@ function loadInfoCards() {
     // then return
     if (animIDlist.length <= 0) {
         // clone template and append it
-        infoCont.appendChild(
-            cloneTemplate('noInfoButtons').cloneNode(true).cloneNode(true)
-        )
+        infoCont.appendChild( cloneTemplate('noInfoButtons').cloneNode(true).cloneNode(true) )
         
         // show this and hide everything else
         setClass('loadingContainer', 'hidden', true)
@@ -282,6 +280,7 @@ function changeInfoCard() {
     let nextAnim;
     let nextCard;
     let callback;
+    let cont;
 
     // clear the current info container
     let infoCont = getElement('infoContainer')
@@ -291,11 +290,11 @@ function changeInfoCard() {
     nextAnim = cards.pop()
 
     // if the length of the list is 0 now, make it change cards
-    if (cards.length <= 0) { callback = changeCards }
-    else { callback = changeInfoCard }
+    if (cards.length <= 0) { callback = changeCards; cont = true }
+    else { callback = changeInfoCard; cont = false }
 
     // create and append element
-    nextCard = createInfoCard(nextAnim, callback)
+    nextCard = createInfoCard(nextAnim, callback, cont)
     infoCont.appendChild(nextCard)
 
     // show info again and hide loading, and save new cards list

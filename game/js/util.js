@@ -18,9 +18,10 @@ function setDifficulty(type) { sessionStorage.setItem(kDIFFICULTY, type) }
  * 
  * @param {string} animID the ID of the animal a card is being generated for
  * @param {CallableFunction} callback the function to be called when next is clicked
+ * @param {boolean} cont whether to change the text to "Continue" or "Next"
  * @returns DOM element of an info card
  */
-function createInfoCard(animID, callback) {
+function createInfoCard(animID, callback, cont = false) {
     // get the info template and clone it
     let infoTemplate = cloneTemplate('infoCard')
     let infoClone = infoTemplate.cloneNode(true)
@@ -46,6 +47,7 @@ function createInfoCard(animID, callback) {
         redirect('../landing')
     })
     infoClone.querySelector("#buttons #next").addEventListener('click', callback)
+    if (cont) { infoClone.querySelector("#buttons #next").innerText = 'Continue' }
 
     return infoClone
 }

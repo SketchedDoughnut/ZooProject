@@ -1,4 +1,3 @@
-
 /* the container of the image */
 .loadingImageContainer {
   display: flex;
@@ -21,6 +20,28 @@
 .spin {
   animation: spin 2s linear infinite;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* the container for the animal images */
 .sectionContainer {
@@ -64,8 +85,61 @@
   font-weight: bold;
 }
 
+/* a class for when the selections are wrong */
+.wrong {
+  filter: grayscale(100%) sepia(100%) saturate(1000%) hue-rotate(-50deg);
+  border: 5px solid red;
+}
+
+/* a class for when the selections are right */
+.right {
+  filter: grayscale(100%) sepia(100%) saturate(1000%) hue-rotate(+50deg);
+  border: 5px solid green;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* the container for the button container for no info */
+.noinfoContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  font-size: 25px;
+  min-height: 100vh;
+  padding-top: 5vw;
+}
+
+/* the header within the no info container */
+.noinfoContainer h1 {
+  padding-top: 5vw;
+  margin-bottom: -20vw;
+}
+
 /* the flex container for the menu buttons */
-.home_next_button_container {
+.noInfoButtonContainer {
   display: flex;
   justify-content: center; 
   align-items: center;     
@@ -74,7 +148,7 @@
 }
 
 /* the menu buttons (start, settings, etc) */
-.home_next_button {
+.noInfoButton {
   color: black;
   background-color: #076150;
   border-color: rgb(90, 19, 19);
@@ -88,14 +162,54 @@
   cursor: pointer;
 }
 
-/* a class for when the selections are wrong */
-.wrong {
-  filter: grayscale(100%) sepia(100%) saturate(1000%) hue-rotate(-50deg);
-  border: 5px solid red;
+.homeButtonContainer {
+  display: flex;
+  justify-content: center;
 }
 
-/* a class for when the selections are right */
-.right {
-  filter: grayscale(100%) sepia(100%) saturate(1000%) hue-rotate(+50deg);
-  border: 5px solid green;
+.homeButton {
+  color: black;
+  background-color: #076150;
+  border-color: rgb(90, 19, 19);
+  border-width: 0.5vw;
+  font-size: 1.5vw;
+  font-weight: bolder;
+  min-width: 5vw;
+  min-height: 1.5vw;
+  width: 12.5vw;
+  margin: .5vw;
+  margin-top: 1.5vw;
+  cursor: pointer;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
