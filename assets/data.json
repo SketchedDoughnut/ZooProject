@@ -1,4 +1,4 @@
-{
+{    
     "other": {
         "amur_tiger": {
             "pic": "1YjHC_oeLbWBUoxWQqKpDH3Wi5Ywabu00",
@@ -16,7 +16,7 @@
                 "name": "Amur tiger",
                 "natural_hab": "The Amur tiger lives in the high altitudes of Russia and Asia. They are used to harsh climates and long winters.",
                 "zoo_hab": "In the zoo, a rocky hill creates the base of the habitat. Trees, grass, and logs are spread throughout, and a deep pond is in the middle of the hill. A wooden platform with toys and nesting is a place for the tigers to sunbathe. The tigers have a shelter, which is most likely some sort of cave out of view.",
-                "conservation": "The Amur tiger is in many human conflicts. Humans are poaching them and their prey, which has decreased their population to around 600 tigers as of 2025.\n\nForest fires and logging have caused habitat loss.",
+                "conservation": "The Amur tiger is in many human conflicts. Humans are poaching them and their prey, which has decreased their population to around 600 tigers as of 2025.\nForest fires and logging have caused habitat loss.",
                 "fun_fact": ""   
             }
         },
@@ -36,7 +36,7 @@
                 "name": "Asian elephant",
                 "natural_hab": "The Asian elephant lives in environments ranging from wet forests to dry green lands. They need lots of open space and ways to escape the sun. A permanent water source allows temperature control and enrichment.",
                 "zoo_hab": "The zoo designates a large seperate area for their asian elephants. Forest Hall, a big indoor area kept at 70 degrees, provides shade from the sun and has some toys for the elephants to play with. The elephant pool is a 4 foot deep water source with sand for cushioning. Toys are seen in the pool and in each space the elephant has. The areas consist of flat dirt and dust with some logs. Feeders are spread throughout each area.",
-                "conservation": "The Asian elephant has been endangered since 1986 due to many reasons. Such as being used for logging and hunted for their ivory tusks.\n\nDevelopment and agriculture have destroyed their habitat.",
+                "conservation": "The Asian elephant has been endangered since 1986 due to many reasons. Such as being used for logging and hunted for their ivory tusks.\nDevelopment and agriculture have destroyed their habitat.",
                 "fun_fact": ""   
             }
         },
@@ -94,7 +94,7 @@
                 "name": "Black rhinoceros",
                 "natural_hab": "The Black Rhino lives in the grasslands, savannas, and forests of South Africa. They need lots of woody vegetation and water sources.",
                 "zoo_hab": "The many areas at the zoo provide the Black rhino with lots of space. Rocks and trees on top of dusty dirt mimic the natural land of a savanna. Toys, scratchers, and feeders are spread out to create enrichment and reasons for the rhinos to move about.",
-                "conservation": "The Black rhino has been endangered since 1996. Humans have impacted their population heavily because of habitat loss and climate change.\n\nIllegal poaching of their horns for traditional medicine or as a prize/trophy is another threat to their population.",
+                "conservation": "The Black rhino has been endangered since 1996. Humans have impacted their population heavily because of habitat loss and climate change.\nIllegal poaching of their horns for traditional medicine or as a prize/trophy is another threat to their population.",
                 "fun_fact": ""   
             }
         },
@@ -279,7 +279,7 @@
                 "name": "Harbor seal",
                 "natural_hab": "The Harbor Seal lives in the cold, deep waters of the Arctic or cool waters. They will leave the sea to rest on sandy, rocky beaches.",
                 "zoo_hab": "At the zoo, the harbor seal has deep water with shade and ice piled around to maintain their temperature. They are provided with dry rocky land to rest on but enjoy swimming with their toys in the water.",
-                "conservation": "The Harbor seal tends to live in heavily fished area. The over fishing cause a serious lake of food for the seals. Fishing nets, whether active or forgotten about, often trap these seals and end up drowning them. :(\n\nWater pollution like chemicals, plastic, and oil spills have shrunken their habitable environment.",
+                "conservation": "The Harbor seal tends to live in heavily fished area. The over fishing cause a serious lake of food for the seals. Fishing nets, whether active or forgotten about, often trap these seals and end up drowning them. :(\nWater pollution like chemicals, plastic, and oil spills have shrunken their habitable environment.",
                 "fun_fact": ""   
             }
         },
@@ -297,7 +297,7 @@
                 "name": "Humboldt penguin",
                 "natural_hab": "The Humboldt Penguin lives on rocky shores with lots of cold water.",
                 "zoo_hab": "The Oregon zoo provides penguins with moving water amidst rocky hills. They are in a roofed environment to maintain the temperature of the enclosure. Ice piles are also available to provide temperature control.",
-                "conservation": "The Humboldt Penguin suffers from overfishing by humans and, in turn doesn’t have enough food to thrive.\n\nTheir nesting material, seabird guano, is harvested to be used as a fertilizer, making it harder to raise children.",
+                "conservation": "The Humboldt Penguin suffers from overfishing by humans and, in turn doesn’t have enough food to thrive.\nTheir nesting material, seabird guano, is harvested to be used as a fertilizer, making it harder to raise children.",
                 "fun_fact": ""   
             }
         },
@@ -353,7 +353,7 @@
                 "name": "Palawan peacock-pheasant",
                 "natural_hab": "The Palawan Peacock Pheasant lives in dense, humid forests with lots of cover and shelter.",
                 "zoo_hab": "The climate inside the zoo's aviary is warm and humid. A small stream runs through moist dirt and the tall trees where most of the birds tend to be. Nest provides shelter for the flying bird and open cages with nesting for the grounded ones.",
-                "conservation": "The Palawan Peacock Pheasant loses its dense forest habitat to deforestation.\n\nIt's looks make it desired as a pet, but it is illegal to own and trade them because they are endangered. If not taken as pets, they are killed for their meat to supply the exotic meat trade.",
+                "conservation": "The Palawan Peacock Pheasant loses its dense forest habitat to deforestation.\nIt's looks make it desired as a pet, but it is illegal to own and trade them because they are endangered. If not taken as pets, they are killed for their meat to supply the exotic meat trade.",
                 "fun_fact": ""   
             }
         },
@@ -390,7 +390,7 @@
                 "name": "River otter",
                 "natural_hab": "The North American river otter lives in large waterways of around 40 miles. They tend to move into beaver dens for shelter near the water.",
                 "zoo_hab": "Within the Oregon Zoo, river otters have running water with logs and rocky land to mimic their natural habitat. A hole in the water leads to a shelter. Toys are found floating about for them to play with.",
-                "conservation": "The North American river otter have been hunted for their fur due to fur trapping in the 19th century. This significantly affected their population.\n\nHabitat loss and pollution destroys the rivers need for the otters to thrive.",
+                "conservation": "The North American river otter have been hunted for their fur due to fur trapping in the 19th century. This significantly affected their population.\nHabitat loss and pollution destroys the rivers need for the otters to thrive.",
                 "fun_fact": ""   
             }
         },
@@ -407,8 +407,8 @@
                 ],
                 "name": "Sea otter",
                 "natural_hab": "Sea otters spend most of their time in the waters of the North Pacific Ocean. They tend to stay in shallower parts of the water in order to stay warm.",
-                "zoo_hab": "Their zoo habitat has deep water with rocky, dry land. There's some shade as well as ice piles to make sure the otters don’t overheat.\n\nSmall seashells can be found at the bottom of the water to provide enrichment for the otters.",
-                "conservation": "The kelp forests that sea otters inhabit are also home to the sea urchin. Sea urchins are invasive and destroy the habitats they come across, such as kelp forests. The sea otters eat the sea urchins, which helps the kelp forests thrive, creating a habitat that supports a diverse sea life.\n\nSea otters have been hunted for their fur and became endangered in 1977. Human fishing has had an effect because their nets and boats trap and drown the otters. Pollution of the North Pacific Ocean by oil spills and plastic, among other problems, such as ocean acidification and global warming, have led to a decrease in its population.\n\nLuckily, due to human efforts and conservation, the sea otter population has risen from a few thousand in 1911 to around 130,000 in 2025.",
+                "zoo_hab": "Their zoo habitat has deep water with rocky, dry land. There's some shade as well as ice piles to make sure the otters don’t overheat.\nSmall seashells can be found at the bottom of the water to provide enrichment for the otters.",
+                "conservation": "The kelp forests that sea otters inhabit are also home to the sea urchin. Sea urchins are invasive and destroy the habitats they come across, such as kelp forests. The sea otters eat the sea urchins, which helps the kelp forests thrive, creating a habitat that supports a diverse sea life.\nSea otters have been hunted for their fur and became endangered in 1977. Human fishing has had an effect because their nets and boats trap and drown the otters. Pollution of the North Pacific Ocean by oil spills and plastic, among other problems, such as ocean acidification and global warming, have led to a decrease in its population.\nLuckily, due to human efforts and conservation, the sea otter population has risen from a few thousand in 1911 to around 130,000 in 2025.",
                 "fun_fact": ""   
             }
         },

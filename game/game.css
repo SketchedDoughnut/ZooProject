@@ -235,12 +235,13 @@
   padding-top: 5px;
 }
 
-.slideshow {}
+/* .slideshow {} */
 
 .menuButtonContainer {
   display: flex;
   justify-content: center; 
   align-items: center;
+  padding-top: 1.75vh;
 }
 
 .menuButton {
