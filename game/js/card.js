@@ -95,7 +95,8 @@ function changeCards() {
                 // set the parameters of the animal card
                 let animCard = animalClone.querySelector('.imageCards')
                 animCard.id = animID // name of the animal
-                animCard.src = getDriveURL(animPicID) // google drive id with the animal picture
+                // animCard.src = getDriveURL(animPicID) // google drive id with the animal picture
+                animCard.src = 'https://github.com/SketchedDoughnut/ZooProject/blob/main/assets/img/' + animID + '/' + animPicID + '.JPG?raw=true'
                 animCard.addEventListener('click', function() {
                     setSelected(animCard.id, true).then(() => { // have this one be selected and none of the others
                         winCheck()
@@ -105,7 +106,8 @@ function changeCards() {
                 // set the parameters of the habitat card
                 let habCard = habitatClone.querySelector('.imageCards')
                 habCard.id = habID // the hash of the animal that is in this habitat
-                habCard.src = getDriveURL(habPicID) // google drive id with the habitat picture
+                // habCard.src = getDriveURL(habPicID) // google drive id with the habitat picture
+                habCard.src = 'https://github.com/SketchedDoughnut/ZooProject/blob/main/assets/img/' + animID + '/' + habPicID + '.JPG?raw=true'
                 habCard.addEventListener('click', function() {
                     setSelected(habCard.id, false).then(() => { // have this one be selected and none of the others
                         winCheck()
