@@ -81,12 +81,29 @@ function changeCards() {
             habPics = shuffleArray(habPics, kMAX_CARDS)
             animPics = shuffleArray(animPics, kMAX_CARDS)
 
+            // get raw data to find matching habitat for animal
+            raw = JSON.parse(sessionStorage.getItem(kRAW))['other']
+
             // create three elements of the animal / habitat
             for (let i = 0; i < kMAX_CARDS; i++) {
                 let animPicID = animPics[i][0] // the picture ID of the animal
                 let animID = animPics[i][1] // the element ID (animal name)
                 let habPicID = habPics[i][0] // the picture ID of the habitat 
                 let habID = habPics[i][1] // the element id (hash of animal name)
+                
+                // go through all of the animals and find the matching animal
+                let habMatch = null
+                for (let animal of Object.keys(raw)) {
+                    console.log('looking at:', animal)
+                    // if the hash of the animal name is the same as the habtiat id (which is a hash of the animal name)
+                    hashed = generateHash(animal)
+                    console.log('newly hashed:', hashed)
+                    console.log('hab hash:', habID)
+                    if (hashed == habID) {
+                        habMatch = animal
+                        break
+                    }
+                }
 
                 // create clones of templates
                 let animalClone = animalTemplate.cloneNode(true)
@@ -107,7 +124,7 @@ function changeCards() {
                 let habCard = habitatClone.querySelector('.imageCards')
                 habCard.id = habID // the hash of the animal that is in this habitat
                 // habCard.src = getDriveURL(habPicID) // google drive id with the habitat picture
-                habCard.src = 'https://github.com/SketchedDoughnut/ZooProject/blob/main/assets/img/' + animID + '/' + habPicID + '.JPG?raw=true'
+                habCard.src = 'https://github.com/SketchedDoughnut/ZooProject/blob/main/assets/img/' + habMatch + '/' + habPicID + '.JPG?raw=true'
                 habCard.addEventListener('click', function() {
                     setSelected(habCard.id, false).then(() => { // have this one be selected and none of the others
                         winCheck()
