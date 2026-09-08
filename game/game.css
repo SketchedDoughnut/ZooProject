@@ -4,7 +4,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 50vh;
+  height: 87.5vh;
+}
+
+/* the loading text */
+#loadingText {
+  margin-bottom: 5px;
+}
+
+#loadingCount {
+  margin-top: 0;
 }
 
 /* the loading image itself */

@@ -12,9 +12,6 @@
 
 // runs on load of the page
 window.addEventListener("load", function() {
-    // hide the game container
-    setClass('gameContainer', 'hidden', true)
-
     // set difficulty to easy if doesn't exist in session storage
     if (!sessionStorage.getItem(kDIFFICULTY)) { setDifficulty(kEASY) }
 
@@ -50,9 +47,10 @@ function preloadImages() {
         // create all of our constants and stuff
         const raw = JSON.parse(sessionStorage.getItem(kRAW))['other']
         const loadingText = document.getElementById('loadingText')
+        const loadingCounter = document.getElementById('loadingCounter')
 
         // initialize loading text
-        loadingText.textContent += " 0/" + Object.keys(raw).length*2
+        loadingCounter.textContent = `0/${Object.keys(raw).length*2}`
 
         // format all of our links for loading
         let links = []
@@ -82,8 +80,7 @@ function preloadImages() {
                 function resolvedFunction() {
                     // edit the loading text and update the number
                     counter += 1
-                    let spl = loadingText.textContent.split('...')
-                    loadingText.textContent = spl[0] + '... ' + counter + '/' + links.length
+                    loadingCounter.textContent = `${counter}/${links.length}`
 
                     console.log('image resolved!')
                     resolve({'status': 'done'})
