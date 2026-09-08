@@ -94,11 +94,8 @@ function changeCards() {
                 // go through all of the animals and find the matching animal
                 let habMatch = null
                 for (let animal of Object.keys(raw)) {
-                    console.log('looking at:', animal)
                     // if the hash of the animal name is the same as the habtiat id (which is a hash of the animal name)
                     hashed = generateHash(animal)
-                    console.log('newly hashed:', hashed)
-                    console.log('hab hash:', habID)
                     if (hashed == habID) {
                         habMatch = animal
                         break
